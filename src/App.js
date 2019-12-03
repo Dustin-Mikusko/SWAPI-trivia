@@ -31,50 +31,63 @@ class App extends Component {
         let moviesAndCharactersPromises = data.results.map(movie => {
 
           return movie.characters.map(character => {
-            let world = fetchWorld(character);
+            let world = this.fetchWorld(character);
+            console.log('world', world);
             return fetch(character)
             .then(response => response.json())
             .then(character => ({
               name: character.name,
-              world: world.name,
-              population: world.population,
-              species: fetchSpecies(character);
-              relatedFilms: //fetch
+              world: this.world.name,
+              population: this.world.population,
+              species: this.fetchSpecies(character),
+              relatedFilms: this.fetchFilms(character)
             }))
-            .catch(error => console.log(error);)
+            .catch(error => console.log(error))
           }
           )
-
-          return {
-            title: movie.title,
-            episode: movie.episode_id,
-            releaseDate: release_date,
-
-          }
+          // return {
+          //   title: movie.title,
+          //   episode: movie.episode_id,
+          //   releaseDate: release_date,
+          //
+          // }
         })
-        .catch(error => console.log(error);
-      })
-    }
+        return Promise.all(moviesAndCharactersPromises);
+        // .catch(error => console.log(error)
+      // })
+    })
+    .then(data => console.log(data))
+  }
 
     fetchWorld(character) {
-      let homeworld =
+      let world =
       fetch(character.homeworld)
         .then(response => response.json())
-        .then(data => data)
-        .catch(error => console.log(error);)
-      return {
-        name: homeworld.name,
-        population: homeworld.population
-      }
+        .then(data => ({
+          name: data.name,
+          population: data.population
+        }))
+        .catch(error => console.log(error))
+        console.log('world', world);
+      return world;
     }
 
     fetchSpecies(character) {
       let species =
       fetch(character.species)
         .then(response => response.json())
-        .then(data => data)
+        .then(data => data.name)
         .catch(error => console.log(error))
-      return species.name;
+      return species;
+    }
+
+    fetchFilms(character) {
+      return character.films.map(film => {
+        return fetch(film)
+          .then(response => response.json())
+          .then(data => data.title)
+          .catch(error => console.log(error))
+      })
     }
 
   render() {
