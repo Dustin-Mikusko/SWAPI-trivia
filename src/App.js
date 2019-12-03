@@ -29,22 +29,21 @@ class App extends Component {
       .then(response => response.json())
       .then(data => {
         let moviesAndCharactersPromises = data.results.map(movie => {
-
           return movie.characters.map(character => {
-            let world = this.fetchWorld(character);
-            console.log('world', world);
             return fetch(character)
             .then(response => response.json())
-            .then(character => ({
-              name: character.name,
-              world: this.world.name,
-              population: this.world.population,
-              species: this.fetchSpecies(character),
-              relatedFilms: this.fetchFilms(character)
-            }))
+            .then(character => {
+              let world = this.fetchWorld(character);
+              return {
+                name: character.name,
+                world: world.name,
+                population: world.population,
+                species: this.fetchSpecies(character),
+                relatedFilms: this.fetchFilms(character)
+              }
+            })
             .catch(error => console.log(error))
-          }
-          )
+          })
           // return {
           //   title: movie.title,
           //   episode: movie.episode_id,
@@ -53,8 +52,7 @@ class App extends Component {
           // }
         })
         return Promise.all(moviesAndCharactersPromises);
-        // .catch(error => console.log(error)
-      // })
+
     })
     .then(data => console.log(data))
   }
@@ -68,7 +66,7 @@ class App extends Component {
           population: data.population
         }))
         .catch(error => console.log(error))
-        console.log('world', world);
+        // console.log('world', world);
       return world;
     }
 
