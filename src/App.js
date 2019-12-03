@@ -38,11 +38,12 @@ class App extends Component {
               name: character.name,
               world: world.name,
               population: world.population,
-              species: //fetch,
+              species: fetchSpecies(character);
               relatedFilms: //fetch
             }))
+            .catch(error => console.log(error);)
           }
-          ))
+          )
 
           return {
             title: movie.title,
@@ -51,6 +52,7 @@ class App extends Component {
 
           }
         })
+        .catch(error => console.log(error);
       })
     }
 
@@ -59,10 +61,20 @@ class App extends Component {
       fetch(character.homeworld)
         .then(response => response.json())
         .then(data => data)
+        .catch(error => console.log(error);)
       return {
         name: homeworld.name,
         population: homeworld.population
       }
+    }
+
+    fetchSpecies(character) {
+      let species =
+      fetch(character.species)
+        .then(response => response.json())
+        .then(data => data)
+        .catch(error => console.log(error))
+      return species.name;
     }
 
   render() {
