@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
 import App from '../App/App';
+import starWarsLogo from '../../images/star-wars-logo.jpeg'
 
 class Form extends Component {
   constructor({ name, quote, rank, favoriteCharacters }) {
@@ -15,22 +16,22 @@ class Form extends Component {
   render() {
     return (
       <form>
-       <h1>Star Wars</h1>
-       <input 
+      <img src={starWarsLogo} alt='Star Wars logo' />
+       <input
           type="text"
-          placeholder="Name"
+          placeholder=" Name"
           name="name"
           value={this.state.name}
           onChange={event => this.handeChange(event)}
         />
-        <input 
+        <input
           type="text"
-          placeholder="Favorite Star Wars Quote"
+          placeholder=" Favorite Star Wars Quote"
           name="quote"
           value={this.state.quote}
           onChange={event => this.handeChange(event)}
         />
-        <select 
+        <select
           name="rank"
           value={this.state.rank}
           onChange={event => this.handleChange(event)}

@@ -1,0 +1,44 @@
+/* * {
+  border: 1px solid red;
+} */
+
+form {
+  background-image: url('../../images/background-stars.jpeg') ;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh
+}
+
+img {
+  width: 40%;
+  height: 50%
+}
+
+input {
+  height: 1.5em;
+  width: 20%;
+  margin: .5em;
+  border-radius: 10px;
+  font-size: 2em;
+}
+
+select {
+  height: 2em;
+  width: 20%;
+  margin: .5em;
+  border-radius: 10px;
+  font-size: 1.5em;
+}
+
+button {
+  height: 2em;
+  width: 20%;
+  margin: 1.5em;
+  border-radius: 10px;
+  font-size: 1.75em;
+  background-color: #E8C539;
+  font-weight: bold;
+}
