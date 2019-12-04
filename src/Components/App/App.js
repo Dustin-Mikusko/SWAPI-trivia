@@ -12,15 +12,8 @@ class App extends Component {
         rank: '',
         favoriteCharacters: []
       },
-      movies: []
-      // {
-      //   title: '',
-      //   episode: null,
-      //   releaseDate: null,
-      //   characters: [],
-      //   image: '../images/movie.jpeg',
-      //   openingCredits: ''
-      // }
+      movies: [],
+      error: '',
     }
   }
 
@@ -28,36 +21,25 @@ class App extends Component {
     fetch('https://swapi.co/api/films/')
       .then(response => response.json())
       .then(data => {
-        let moviesAndCharactersPromises = data.results.map(movie => {
-          return movie.characters.map(character => {
-            return fetch(character)
-            .then(response => response.json())
-            .then(character => {
-              let world = this.fetchWorld(character);
-              return {
-                name: character.name,
-                world: world.name,
-                population: world.population,
-                species: this.fetchSpecies(character),
-                relatedFilms: this.fetchFilms(character)
-              }
-            })
-            .catch(error => console.log(error))
-          })
-          // return {
-          //   title: movie.title,
-          //   episode: movie.episode_id,
-          //   releaseDate: release_date,
-          //
-          // }
-        })
-        return Promise.all(moviesAndCharactersPromises);
-
-    })
-    .then(data => console.log(data))
+        return data.results.map(movie => {
+          return {
+            title: movie.title,
+            episode: movie.episode_id,
+            releaseDate: this.parseReleaseDate(movie.release_date),
+            image: '../images/movie.jpeg',
+            openingCredits: movie.opening_crawl
+          }
+       })
+      })
+      .then(movies => this.setState({ movies }))
+      .catch(err => this.setState(err))
   }
 
-    fetchWorld(character) {
+  parseReleaseDate = date => {
+    return date.split('-')[0];
+  }
+
+    fetchWorld = (character) => {
       let world =
       fetch(character.homeworld)
         .then(response => response.json())
@@ -70,7 +52,7 @@ class App extends Component {
       return world;
     }
 
-    fetchSpecies(character) {
+    fetchSpecies = (character) => {
       let species =
       fetch(character.species)
         .then(response => response.json())
@@ -79,7 +61,7 @@ class App extends Component {
       return species;
     }
 
-    fetchFilms(character) {
+    fetchFilms = (character) => {
       return character.films.map(film => {
         return fetch(film)
           .then(response => response.json())
@@ -98,3 +80,27 @@ class App extends Component {
 }
 
 export default App;
+
+
+
+
+
+// return movie.characters.map(character => {
+//   return fetch(character)
+//   .then(response => response.json())
+//   .then(character => {
+//     let world = this.fetchWorld(character);
+//     return {
+//       name: character.name,
+//       world: world.name,
+//       population: world.population,
+//       species: this.fetchSpecies(character),
+//       relatedFilms: this.fetchFilms(character)
+//     }
+//   })
+//   .catch(error => console.log(error))
+// })
+
+// return Promise.all(moviesAndCharactersPromises)
+//           .then(data => console.log('line 59:', data))
+//           .catch(err => console.log(err))
