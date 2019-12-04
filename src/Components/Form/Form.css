@@ -43,6 +43,15 @@ button {
   font-weight: bold;
 }
 
+button:hover{
+  cursor: pointer;
+  background-color: rgb(206, 174, 45);
+}
+
+button:active {
+  transform: scale(.97);
+}
+
 .error-border {
   border: 3px solid red;
 }
