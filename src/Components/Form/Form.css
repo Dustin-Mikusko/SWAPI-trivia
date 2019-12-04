@@ -1,9 +1,9 @@
-* {
+/* * {
   border: 1px solid red;
-}
+} */
 
 form {
-  background-color: #000;
+  background-image: url('../../images/background-stars.jpeg') ;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -11,12 +11,14 @@ form {
   flex-direction: column;
   height: 100vh
 }
-h1 {
-  font-size: 10em;
+
+img {
+  width: 40%;
+  height: 50%
 }
 
 input {
-  height: 2em;
+  height: 1.5em;
   width: 20%;
   margin: .5em;
   border-radius: 10px;
@@ -25,13 +27,18 @@ input {
 
 select {
   height: 2em;
+  width: 20%;
   margin: .5em;
-  width: 15%
+  border-radius: 10px;
+  font-size: 1.5em;
 }
 
 button {
+  height: 2em;
+  width: 20%;
+  margin: 1.5em;
   border-radius: 10px;
-  width: 15%;
-  margin-top: 3em;
-  height: 3em
+  font-size: 1.75em;
+  background-color: #E8C539;
+  font-weight: bold;
 }

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
 import App from '../App/App';
+import starWarsLogo from '../../images/star-wars-logo.jpeg'
 
 class Form extends Component {
   constructor({ name, quote, rank, favoriteCharacters }) {
@@ -15,7 +16,7 @@ class Form extends Component {
   render() {
     return (
       <form>
-       <h1>STAR WARS</h1>
+      <img src={starWarsLogo} alt='Star Wars logo' />
        <input
           type="text"
           placeholder=" Name"
