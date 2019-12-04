@@ -42,3 +42,7 @@ button {
   background-color: #E8C539;
   font-weight: bold;
 }
+
+.error-border {
+  border: 3px solid red;
+}
