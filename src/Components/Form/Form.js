@@ -15,22 +15,22 @@ class Form extends Component {
   render() {
     return (
       <form>
-       <h1>Star Wars</h1>
-       <input 
+       <h1>STAR WARS</h1>
+       <input
           type="text"
-          placeholder="Name"
+          placeholder=" Name"
           name="name"
           value={this.state.name}
           onChange={event => this.handeChange(event)}
         />
-        <input 
+        <input
           type="text"
-          placeholder="Favorite Star Wars Quote"
+          placeholder=" Favorite Star Wars Quote"
           name="quote"
           value={this.state.quote}
           onChange={event => this.handeChange(event)}
         />
-        <select 
+        <select
           name="rank"
           value={this.state.rank}
           onChange={event => this.handleChange(event)}
