@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App should create main App component 1`] = `
+<Form
+  addUser={[Function]}
+  user={
+    Object {
+      "favoriteCharacters": Array [],
+      "name": "",
+      "quote": "",
+      "rank": "",
+    }
+  }
+/>
+`;

@@ -1,9 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { shallow } from 'enzyme';
 import App from './App';
+import ReactDOM from 'react-dom';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
-});
+describe('App', () => {
+  it('should create main App component', () => {
+    const wrapper = shallow( <App /> );
+    expect(wrapper).toMatchSnapshot();
+  })
+
+  it('should update state when addUser is called', () => {
+    const wrapper = shallow(< )
+  })
+})
