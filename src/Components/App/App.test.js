@@ -49,6 +49,17 @@ describe('App', () => {
   //   expect(wrapper.instance().fetchWorld).toHaveBeenCalled();
   // })
 
+  // it('should fetch data for character species', () => {
+  //   const fetchSpecies = jest.fn();
+  //   expect(wrapper.instance().fetchSpecies).toHaveBeenCalled();
+  // })
+
+  // it('should fetch data for character's films', () => {
+  //   const fetchFilms = jest.fn();
+  //   expect(wrapper.instance().fetchFilms).toHaveBeenCalled();
+  // })
+
   
+
 
 })
