@@ -23,6 +23,7 @@ class Form extends Component {
     }
     console.log(user);
     addUser(user);
+    //route to MovieContainer
   }
 
   handleChange = event => {
