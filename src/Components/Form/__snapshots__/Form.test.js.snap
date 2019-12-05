@@ -1,0 +1,59 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should match the snapshot with all the data passed in correctly 1`] = `
+<form>
+  <img
+    alt="Star Wars logo"
+    src="star-wars-logo.jpeg"
+  />
+  <input
+    className="name"
+    name="name"
+    onChange={[Function]}
+    placeholder=" Name"
+    type="text"
+    value=""
+  />
+  <input
+    className="quote"
+    name="quote"
+    onChange={[Function]}
+    placeholder=" Favorite Star Wars Quote"
+    type="text"
+    value=""
+  />
+  <select
+    className="rank"
+    name="rank"
+    onChange={[Function]}
+    value=""
+  >
+    <option
+      value=""
+    >
+      --Choose Level--
+    </option>
+    <option
+      value="beginner"
+    >
+      What Is Star Wars??
+    </option>
+    <option
+      value="intermediate"
+    >
+      Padawan
+    </option>
+    <option
+      value="expert"
+    >
+      The Force is Strong With This One...
+    </option>
+  </select>
+  <button
+    onClick={[Function]}
+    type="button"
+  >
+    Enter, You Will
+  </button>
+</form>
+`;
