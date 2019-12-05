@@ -24,9 +24,6 @@ describe('MovieContainer', () => {
         }]
       }
     />)
-
-    // let wrapper = shallow(<MovieContainer /> );
-
     expect(wrapper).toMatchSnapshot();
   })
 })
