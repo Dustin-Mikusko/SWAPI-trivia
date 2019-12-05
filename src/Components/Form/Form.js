@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
-import starWarsLogo from '../../images/star-wars-logo.jpeg'
+import starWarsLogo from '../../images/star-wars-logo.jpeg';
+import { Link } from 'react-router-dom';
 
 class Form extends Component {
   constructor(props) {
@@ -34,9 +35,7 @@ class Form extends Component {
       rank: this.state.rank,
       favoriteCharacters: []
     }
-    console.log(user);
     addUser(user)
-    // this.checkInputs() ? addUser(user) : return;
   }
 
   checkInputs = () => {
@@ -98,7 +97,11 @@ class Form extends Component {
             <option value="intermediate">Padawan</option>
             <option value="expert">The Force is Strong With This One...</option>
         </select>
-        <button type="button" onClick={this.checkInputs}>Enter, You Will</button>
+        <Link
+        //if checkinputs, go to movies, if not, sit on it 
+        to='/movies'>
+          <button onClick={this.checkInputs}>Enter, You Will</button>
+        </Link>
       </form>
     )
   }

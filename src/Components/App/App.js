@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from '../Form/Form';
+import { Route } from 'react-router-dom';
+
 
 class App extends Component {
   constructor() {
@@ -18,6 +20,7 @@ class App extends Component {
 
   addUser = newUser => {
     this.setState({ user: newUser })
+    
   }
 
   componentDidMount() {
@@ -75,10 +78,10 @@ class App extends Component {
 
   render() {
     return (
-     <Form
-      addUser={this.addUser}
-      user={this.state.user}
-     />
+      <body>
+        <Route exact path='/' render={() =>  <Form addUser={this.addUser} /> } />
+      </body>
+
     )
   }
 }
