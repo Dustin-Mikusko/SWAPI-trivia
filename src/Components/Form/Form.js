@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Form.css';
-import App from '../App/App';
 import starWarsLogo from '../../images/star-wars-logo.jpeg'
 
 class Form extends Component {
@@ -13,6 +12,14 @@ class Form extends Component {
     }
   }
 
+  handleChange = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  }
+
+  clearInputs = () => {
+    this.setState({ name: '', quote: '', rank: '' });
+  }
+
   submitUser = () => {
     const { addUser } = this.props;
     let user = {
@@ -21,16 +28,8 @@ class Form extends Component {
       rank: this.state.rank,
       favoriteCharacters: []
     }
-    console.log(user);
     addUser(user);
-  }
-
-  handleChange = event => {
-    this.setState({ [event.target.name]: event.target.value });
-  }
-
-  clearInputs = () => {
-    this.setState({ name: '', quote: '', rank: '' });
+    this.clearInputs();
   }
 
   checkInputs = () => {
