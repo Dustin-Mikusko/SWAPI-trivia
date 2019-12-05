@@ -8,7 +8,12 @@ class Form extends Component {
     this.state = {
       name: '',
       quote: '',
-      rank: ''
+      rank: '',
+      error: {
+        name: false,
+        quote: false,
+        rank: false
+      }
     }
   }
 
@@ -21,6 +26,7 @@ class Form extends Component {
   }
 
   submitUser = () => {
+
     const { addUser } = this.props;
     let user = {
       name: this.state.name,
@@ -28,27 +34,45 @@ class Form extends Component {
       rank: this.state.rank,
       favoriteCharacters: []
     }
-    addUser(user);
-    this.clearInputs();
+    console.log(user);
+    addUser(user)
+    // this.checkInputs() ? addUser(user) : return;
   }
 
   checkInputs = () => {
     Object.keys(this.state).forEach(key => {
       if (!this.state[key]) {
-        document.querySelector(`.${key}`).classList.add('error-border')
+        this.setState(prevState => {
+          let error = Object.assign({}, prevState.error);
+          error[key] = true;
+          return { error };
+        })
       } else {
-        document.querySelector(`.${key}`).classList.remove('error-border')
-      }
-    })
+        this.setState(prevState => {
+          let error = Object.assign({}, prevState.error);
+          error[key] = false;
+          return { error };
+          })
+        }
+      })
+    return this.checkReady();
+  }
+
+  checkReady = () => {
+    const { error } = this.state
+    return error.name && error.quote && error.rank ? this.submitUser() : false;
   }
 
 
   render() {
+    const nameErrorClass = this.state.error.name ? 'error-border' : '';
+    const quoteErrorClass = this.state.error.quote ? 'error-border' : '';
+    const rankErrorClass = this.state.error.rank ? 'error-border' : '';
     return (
       <form>
       <img src={starWarsLogo} alt='Star Wars logo' />
        <input
-          className="name"
+          className={nameErrorClass}
           type="text"
           placeholder=" Name"
           name="name"
@@ -56,7 +80,7 @@ class Form extends Component {
           onChange={event => this.handleChange(event)}
         />
         <input
-          className="quote"
+          className={quoteErrorClass}
           type="text"
           placeholder=" Favorite Star Wars Quote"
           name="quote"
@@ -64,7 +88,7 @@ class Form extends Component {
           onChange={event => this.handleChange(event)}
         />
         <select
-          className="rank"
+          className={rankErrorClass}
           name="rank"
           value={this.state.rank}
           onChange={event => this.handleChange(event)}
@@ -74,7 +98,7 @@ class Form extends Component {
             <option value="intermediate">Padawan</option>
             <option value="expert">The Force is Strong With This One...</option>
         </select>
-        <button type="button" onClick={this.submitUser}>Enter, You Will</button>
+        <button type="button" onClick={this.checkInputs}>Enter, You Will</button>
       </form>
     )
   }
