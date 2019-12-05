@@ -17,6 +17,10 @@ class App extends Component {
     }
   }
 
+  addUser = newUser => {
+    this.setState({ user: newUser })
+  }
+
   componentDidMount() {
     fetch('https://swapi.co/api/films/')
       .then(response => response.json())
@@ -73,6 +77,7 @@ class App extends Component {
   render() {
     return (
      <Form 
+      addUser={this.addUser}
       user={this.state.user}
      />
     )

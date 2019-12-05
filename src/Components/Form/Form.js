@@ -4,13 +4,25 @@ import App from '../App/App';
 import starWarsLogo from '../../images/star-wars-logo.jpeg'
 
 class Form extends Component {
-  constructor({ name, quote, rank, favoriteCharacters }) {
-    super({ name, quote, rank, favoriteCharacters });
+  constructor(props) {
+    super(props);
     this.state = {
       name: '',
       quote: '',
       rank: ''
     }
+  }
+
+  submitUser = () => {
+    const { addUser } = this.props;
+    let user = {
+      name: this.state.name,
+      quote: this.state.quote,
+      rank: this.state.rank,
+      favoriteCharacters: []
+    }
+    console.log(user);
+    addUser(user);
   }
 
   handleChange = event => {
@@ -31,9 +43,6 @@ class Form extends Component {
     })
   }
 
-  // goToNext() {
-  //   this.checkInputs();
-  // }
 
   render() {
     return (
@@ -66,7 +75,7 @@ class Form extends Component {
             <option value="intermediate">Padawan</option>
             <option value="expert">The Force is Strong With This One...</option>
         </select>
-        <button type="button" onClick={this.checkInputs}>Enter, You Will</button>
+        <button type="button" onClick={this.submitUser}>Enter, You Will</button>
       </form>
     )
   }
