@@ -4,13 +4,19 @@ import App from './App';
 import ReactDOM from 'react-dom';
 
 describe('App', () => {
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  })
+
   it('should create main App component', () => {
-    const wrapper = shallow(<App />);
+    // const wrapper = shallow(<App />);
     expect(wrapper).toMatchSnapshot();
   })
 
   it('should update state of user when addUser is called', () => {
-    const wrapper = shallow(<App />);
+    // const wrapper = shallow(<App />);
     const mockState = {
       name: '',
       quote: '',
@@ -28,5 +34,21 @@ describe('App', () => {
     wrapper.instance().addUser(newUser)
   })
 
+  // it('should call componentDidMount after rendering', () => {
+  //   const mockComponentDidMount = jest.fn();
+  //   expect(wrapper.instance().mockComponentDidMount).toHaveBeenCalled();
+  // })
+
+  it('should parse a date to return the year', () => {
+    const date = '2000-1-2';
+    expect(wrapper.instance().parseReleaseDate(date)).toEqual('2000')
+  })
+
+  // it('should fetch data for homeworld', () => {
+  //   const fetchWorld = jest.fn();
+  //   expect(wrapper.instance().fetchWorld).toHaveBeenCalled();
+  // })
+
   
+
 })
