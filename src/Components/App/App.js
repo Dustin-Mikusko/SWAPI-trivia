@@ -21,6 +21,7 @@ class App extends Component {
   }
 
   addUser = newUser => {
+    console.log(newUser)
     this.setState({ user: newUser })
 
   }
