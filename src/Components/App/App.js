@@ -13,15 +13,16 @@ class App extends Component {
         name: '',
         quote: '',
         rank: '',
-        favoriteCharacters: []
+        favoriteCharacters: [],
+        loggedIn: false,
       },
-      movies: [],
+      movies: []
     }
   }
 
   addUser = newUser => {
     this.setState({ user: newUser })
-    
+
   }
 
   componentDidMount() {
@@ -78,13 +79,28 @@ class App extends Component {
     }
 
   render() {
-    return (
-      <body>
-        <Route exact path='/' render={() =>  <Form addUser={this.addUser} /> } />
-      </body>
 
-    )
-  }
+    if (this.state.user.loggedIn) {
+      return (
+        <main>
+          <Redirect to='/movies' />
+          <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies}/> } />
+        </main>
+      )
+    } else {
+      return (<Form addUser={this.addUser} userLogin={this.userLogin} />)
+    }
+
+
+
+
+    // return (
+    //   <body>
+    //     <Route exact path='/' render={() => this.state.user.loggedIn ? <Redirect to='/movies' /> : <Form addUser={this.addUser} userLogin={this.userLogin}/> } />
+    //   </body>
+    //
+    // )
+}
 }
 
 export default App;

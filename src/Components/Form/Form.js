@@ -33,33 +33,35 @@ class Form extends Component {
       name: this.state.name,
       quote: this.state.quote,
       rank: this.state.rank,
-      favoriteCharacters: []
+      favoriteCharacters: [],
+      loggedIn: true
     }
-    addUser(user)
+    console.log('please work');
+    addUser(user);
   }
 
   checkInputs = () => {
     Object.keys(this.state).forEach(key => {
       if (!this.state[key]) {
         this.setState(prevState => {
-          let error = Object.assign({}, prevState.error);
+          let error = Object.assign({}, prevState.error[key]);
           error[key] = true;
           return { error };
         })
       } else {
         this.setState(prevState => {
-          let error = Object.assign({}, prevState.error);
+          let error = Object.assign({}, prevState.error[key]);
           error[key] = false;
           return { error };
           })
         }
       })
-    return this.checkReady();
+    // return this.checkReady();
   }
 
   checkReady = () => {
     const { error } = this.state
-    return error.name && error.quote && error.rank ? this.submitUser() : false;
+    return !error.name && !error.quote && !error.rank ? this.submitUser() : false;
   }
 
 
@@ -97,11 +99,8 @@ class Form extends Component {
             <option value="intermediate">Padawan</option>
             <option value="expert">The Force is Strong With This One...</option>
         </select>
-        <Link
-        //if checkinputs, go to movies, if not, sit on it 
-        to='/movies'>
-          <button onClick={this.checkInputs}>Enter, You Will</button>
-        </Link>
+        <button type="button" onClick={this.checkReady}>Enter, You Will</button>
+
       </form>
     )
   }
