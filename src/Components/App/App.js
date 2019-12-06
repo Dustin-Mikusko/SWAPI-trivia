@@ -81,11 +81,12 @@ class App extends Component {
 
     render() {
       if (this.state.user.loggedIn) {
+        console.log(this.state.movies)
         return (
           <main>
-            {console.log(this.state.user)}
             <Redirect to="/movies" />
-            <Route exact path='/movies' render={ () => <MovieContainer /> } />
+            console.log('hello')
+            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies} /> } />
           </main>
         )
       } else {
