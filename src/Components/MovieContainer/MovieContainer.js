@@ -5,8 +5,7 @@ import Header from '../Header/Header'
 
 const MovieContainer = ({ movies }) => {
   const allMovies = movies.map((movie, i) => {
-    return (
-      < Movie
+    return < Movie
         key = {i}
         title = {movie.title}
         episode = {movie.episode}
@@ -14,16 +13,12 @@ const MovieContainer = ({ movies }) => {
         image = {movie.image}
         openingCredits = {movie.openingCredits}
       />
-    )
   })
 
   return (
-    <body>
-      <Header />
       <main>
           {allMovies}
       </main>
-    </body>
   )
 }
 
