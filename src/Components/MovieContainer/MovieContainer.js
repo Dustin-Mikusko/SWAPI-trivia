@@ -1,6 +1,7 @@
 import React from 'react';
 import './MovieContainer.css';
 import Movie from '../Movie/Movie'
+import Header from '../Header/Header'
 
 const MovieContainer = ({ movies }) => {
   const allMovies = movies.map((movie, i) => {
@@ -17,9 +18,12 @@ const MovieContainer = ({ movies }) => {
   })
 
   return (
-    <main>
-      {allMovies}
-    </main>
+    <body>
+      <Header />
+      <main>
+          {allMovies}
+      </main>
+    </body>
   )
 }
 

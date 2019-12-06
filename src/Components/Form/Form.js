@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
-import starWarsLogo from '../../images/star-wars-logo.jpeg'
+import starWarsLogo from '../../images/star-wars-logo.jpeg';
+import { Link, Redirect } from 'react-router-dom';
 
 class Form extends Component {
   constructor(props) {
@@ -10,10 +11,17 @@ class Form extends Component {
       quote: '',
       rank: '',
       error: {
+<<<<<<< HEAD
           name: false,
           quote: false,
           rank: false,
         }
+=======
+        name: false,
+        quote: false,
+        rank: false
+      },
+>>>>>>> 652009c48336b8646b9653720b77bd9ee2f8fb9e
     }
   }
 
@@ -26,6 +34,7 @@ class Form extends Component {
   }
 
   submitUser = () => {
+<<<<<<< HEAD
       const { addUser } = this.props;
       let user = {
         name: this.state.name,
@@ -42,6 +51,22 @@ class Form extends Component {
     // let errorProperty2 = {...this.state.error};
     console.log(1, errorProperty);
     // console.log(2, errorProperty2);
+=======
+    const { addUser } = this.props;
+    let user = {
+      name: this.state.name,
+      quote: this.state.quote,
+      rank: this.state.rank,
+      favoriteCharacters: [],
+      loggedIn: true
+    }
+    addUser(user);
+  }
+
+  checkInputs = () => {
+    let errorProperty = this.state.error;
+    console.log(1, errorProperty);
+>>>>>>> 652009c48336b8646b9653720b77bd9ee2f8fb9e
     Object.keys(errorProperty).forEach(key => {
       if (!this.state[key]) {
         errorProperty[key] = true;
@@ -52,10 +77,15 @@ class Form extends Component {
       }
     });
     console.log(3, {...errorProperty});
+<<<<<<< HEAD
     // console.log(4, errorProperty2);
     this.checkReady();
   }
   
+=======
+    this.checkReady();
+  } 
+>>>>>>> 652009c48336b8646b9653720b77bd9ee2f8fb9e
   checkReady = () => {
     let error = this.state.error;
     return !error.name && !error.quote && !error.rank ? this.submitUser() : console.log('nope, cann\'t do it');
@@ -97,6 +127,7 @@ class Form extends Component {
             <option value="expert">The Force is Strong With This One...</option>
         </select>
         <button type="button" onClick={this.checkInputs}>Enter, You Will</button>
+
       </form>
     )
   }

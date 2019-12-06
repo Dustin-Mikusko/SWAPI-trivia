@@ -1,12 +1,16 @@
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:600&display=swap');
 
+* {
+  border: 1px solid red;
+}
 article {
-  margin: auto;
+  margin: 3% 1% 1% 1%;
   background-color: white;
   width: 320px;
   height: 590px;
   border: 10px solid white;
   position: relative;
+  color: #000;
 }
 
 h1 {
