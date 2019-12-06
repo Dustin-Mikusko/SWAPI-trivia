@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from '../Form/Form';
+import { Route, Redirect } from 'react-router-dom';
+import MovieContainer from '../MovieContainer/MovieContainer'
 
 class App extends Component {
   constructor() {
@@ -73,15 +75,25 @@ class App extends Component {
       })
     }
 
-  render() {
-    return (
-     <Form
-      addUser={this.addUser}
-      user={this.state.user}
-     />
-    )
+    render() {
+      if (this.state.user.loggedIn) {
+        return (
+          <main>
+            {console.log(this.state.user)}
+            <Redirect to="/movies" />
+            <Route exact path='/movies' render={ () => <MovieContainer /> } />
+          </main>
+        )
+      } else {
+          return (
+            <main>
+              <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
+            </main>
+         )
+      }
+    }
   }
-}
+
 
 export default App;
 

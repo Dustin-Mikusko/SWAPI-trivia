@@ -10,10 +10,10 @@ class Form extends Component {
       quote: '',
       rank: '',
       error: {
-        name: false,
-        quote: false,
-        rank: false
-      }
+          name: false,
+          quote: false,
+          rank: false,
+        }
     }
   }
 
@@ -26,41 +26,39 @@ class Form extends Component {
   }
 
   submitUser = () => {
-
-    const { addUser } = this.props;
-    let user = {
-      name: this.state.name,
-      quote: this.state.quote,
-      rank: this.state.rank,
-      favoriteCharacters: []
+      const { addUser } = this.props;
+      let user = {
+        name: this.state.name,
+        quote: this.state.quote,
+        rank: this.state.rank,
+        favoriteCharacters: [],
+        loggedIn: true
+      }
+      addUser(user);
     }
-    console.log(user);
-    addUser(user)
-    // this.checkInputs() ? addUser(user) : return;
-  }
 
   checkInputs = () => {
-    Object.keys(this.state).forEach(key => {
+    let errorProperty = this.state.error;
+    // let errorProperty2 = {...this.state.error};
+    console.log(1, errorProperty);
+    // console.log(2, errorProperty2);
+    Object.keys(errorProperty).forEach(key => {
       if (!this.state[key]) {
-        this.setState(prevState => {
-          let error = Object.assign({}, prevState.error);
-          error[key] = true;
-          return { error };
-        })
+        errorProperty[key] = true;
+        this.setState({error: errorProperty});
       } else {
-        this.setState(prevState => {
-          let error = Object.assign({}, prevState.error);
-          error[key] = false;
-          return { error };
-          })
-        }
-      })
-    return this.checkReady();
+        errorProperty[key] = false;
+        this.setState({error: errorProperty})
+      }
+    });
+    console.log(3, {...errorProperty});
+    // console.log(4, errorProperty2);
+    this.checkReady();
   }
-
+  
   checkReady = () => {
-    const { error } = this.state
-    return error.name && error.quote && error.rank ? this.submitUser() : false;
+    let error = this.state.error;
+    return !error.name && !error.quote && !error.rank ? this.submitUser() : console.log('nope, cann\'t do it');
   }
 
 
