@@ -21,6 +21,7 @@ class App extends Component {
   }
 
   addUser = newUser => {
+    console.log(newUser)
     this.setState({ user: newUser })
 
   }
@@ -78,18 +79,37 @@ class App extends Component {
       })
     }
 
-  render() {
+  // render() {
 
-    if (this.state.user.loggedIn) {
-      return (
-        <main>
-          <Redirect to='/movies' />
-          <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies}/> } />
-        </main>
-      )
-    } else {
-      return (<Form addUser={this.addUser} userLogin={this.userLogin} />)
+    render() {
+      if (this.state.user.loggedIn) {
+        return (
+          <main>
+            {console.log(this.state.user)}
+            <Redirect to="/movies" />
+            <Route exact path='/movies' render={ () => <MovieContainer /> } />
+          </main>
+        )
+      } else {
+          return (
+            <main>
+              <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
+            </main>
+         )
+      } 
     }
+  }
+
+    // if (this.state.user.loggedIn) {
+    //   return (
+    //     <main>
+    //       <Redirect to='/movies' />
+    //       <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies}/> } />
+    //     </main>
+    //   )
+    // } else {
+    //   return (<Form addUser={this.addUser} userLogin={this.userLogin} />)
+    // }
 
 
 
@@ -100,8 +120,8 @@ class App extends Component {
     //   </body>
     //
     // )
-}
-}
+
+
 
 export default App;
 

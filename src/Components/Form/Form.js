@@ -27,7 +27,6 @@ class Form extends Component {
   }
 
   submitUser = () => {
-
     const { addUser } = this.props;
     let user = {
       name: this.state.name,
@@ -36,32 +35,27 @@ class Form extends Component {
       favoriteCharacters: [],
       loggedIn: true
     }
-    console.log('please work');
     addUser(user);
   }
 
   checkInputs = () => {
-    Object.keys(this.state).forEach(key => {
+    let errorProperty = this.state.error;
+    console.log(1, errorProperty);
+    Object.keys(errorProperty).forEach(key => {
       if (!this.state[key]) {
-        this.setState(prevState => {
-          let error = Object.assign({}, prevState.error[key]);
-          error[key] = true;
-          return { error };
-        })
+        errorProperty[key] = true;
+        this.setState({error: errorProperty});
       } else {
-        this.setState(prevState => {
-          let error = Object.assign({}, prevState.error[key]);
-          error[key] = false;
-          return { error };
-          })
-        }
-      })
-    // return this.checkReady();
-  }
-
+        errorProperty[key] = false;
+        this.setState({error: errorProperty})
+      }
+    });
+    console.log(3, {...errorProperty});
+    this.checkReady();
+  } 
   checkReady = () => {
-    const { error } = this.state
-    return !error.name && !error.quote && !error.rank ? this.submitUser() : false;
+    let error = this.state.error;
+    return !error.name && !error.quote && !error.rank ? this.submitUser() : console.log('nope, cann\'t do it');
   }
 
 
@@ -99,7 +93,7 @@ class Form extends Component {
             <option value="intermediate">Padawan</option>
             <option value="expert">The Force is Strong With This One...</option>
         </select>
-        <button type="button" onClick={this.checkReady}>Enter, You Will</button>
+        <button type="button" onClick={this.checkInputs}>Enter, You Will</button>
 
       </form>
     )
