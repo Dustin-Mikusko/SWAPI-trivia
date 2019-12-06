@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './Form.css';
 import starWarsLogo from '../../images/star-wars-logo.jpeg';
-import { Link } from 'react-router-dom';
+import { Link, Redirect } from 'react-router-dom';
 
 class Form extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class Form extends Component {
         name: false,
         quote: false,
         rank: false
-      }
+      },
     }
   }
 

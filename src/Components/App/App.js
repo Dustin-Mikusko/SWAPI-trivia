@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import Form from '../Form/Form';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
+import MovieContainer from '../MovieContainer/MovieContainer'
 
 
 class App extends Component {
