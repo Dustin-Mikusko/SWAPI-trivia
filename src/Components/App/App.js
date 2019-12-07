@@ -112,20 +112,19 @@ class App extends Component {
 
     render() {
       if (this.state.user.loggedIn) {
-        
+       return ( 
+       <>
+          <Redirect to="/movies" />
+          <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}/> } />
+       </>
+       )
+      }
         return (
           <main>
-            <Redirect to="/movies" />
+            <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
             <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}/> } />
           </main>
         )
-      } else {
-          return (
-            <main>
-              <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
-            </main>
-         )
-      }
     }
 }
 
