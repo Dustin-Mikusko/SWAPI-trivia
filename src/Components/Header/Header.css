@@ -1,32 +1,42 @@
-* {
+
+/* * {
   border: 1px solid red;
+} */
+header {
+  padding: .1%;
+  background-color: #000;
+
+
 }
 
-header {
+.header-container {
   background-color: #000;
   height: 125px;
   color: #fff;
   display: flex;
   justify-content: space-between;
+  box-shadow: 0 30px 20px -20px red;
+
 }
 
 .header-quote {
   margin: auto 0px;
-  font-size: 2em;
+  font-size: 2.5em;
   color: #e8c539;
+  font-family: arial;
   font-style: italic;
 }
 
 .logout-button {
-  width: 100px;
-  height: 100px;
-  margin: .5%;
-
+  width: 165px;
+  height: 115px;
 }
 
 h2, p {
   margin: 0;
+  font-family: 'Cormorant Garamond', serif;
 }
+
 .user-badge {
   height: 100px;
   text-align: center;
