@@ -85,7 +85,6 @@ class App extends Component {
         return (
           <main>
             <Redirect to="/movies" />
-            console.log('hello')
             <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies} /> } />
           </main>
         )
