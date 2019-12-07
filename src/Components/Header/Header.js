@@ -2,9 +2,10 @@ import React from 'react';
 import './Header.css';
 import babyYoda from '../../images/baby-yoda.jpeg';
 import lightsaberLogout from '../../images/light-saber-x.jpeg';
+import { Link } from 'react-router-dom';
 
 
-const Header = ({ user }) => {
+const Header = ({ user, logOut}) => {
   return (
     <header>
       <div className='header-container'>
@@ -14,7 +15,9 @@ const Header = ({ user }) => {
           <p>{user.rank}</p>
         </div>
         <h2 className='header-quote'>{user.quote}</h2>
-        <img className='logout-button' src={lightsaberLogout} />
+        <Link to='/' replace onClick={logOut}>
+        <img className='logout-button' src={lightsaberLogout}/>
+        </Link>
       </div>
     </header>
   )

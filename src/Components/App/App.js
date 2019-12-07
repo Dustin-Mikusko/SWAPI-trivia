@@ -20,6 +20,17 @@ class App extends Component {
     }
   }
 
+  userLogOut = () => {
+    this.setState({ user: {
+        name: '',
+        quote: '',
+        rank: '',
+        favoriteCharacters: [],
+        loggedIn: false,
+    }});
+    console.log(this.state.user);
+  }
+
   addUser = newUser => {
     console.log(newUser)
     this.setState({ user: newUser })
@@ -96,7 +107,7 @@ class App extends Component {
         return (
           <main>
             <Redirect to="/movies" />
-            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies} user={this.state.user}/> } />
+            <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}/> } />
           </main>
         )
       } else {
