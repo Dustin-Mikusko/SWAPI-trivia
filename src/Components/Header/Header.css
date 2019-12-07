@@ -4,7 +4,7 @@
 
 header {
   background-color: #000;
-  height: 100px;
+  height: 125px;
   color: #fff;
   display: flex;
   justify-content: space-between;
@@ -20,9 +20,20 @@ header {
 .logout-button {
   width: 100px;
   height: 100px;
+  margin: .5%;
+
 }
 
-
+h2, p {
+  margin: 0;
+}
 .user-badge {
+  height: 100px;
+  text-align: center;
+  margin: .5%;
+}
 
+.baby-yoda {
+  width: 100px;
+  margin: 0;
 }
