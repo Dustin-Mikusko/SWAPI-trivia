@@ -12,7 +12,7 @@ article {
 
 article:hover {
   transform: scale(1.03);
-  transition: all .8s;
+  transition: transform .8s ease-in-out;
   box-shadow: 2px 2px 10px 10px rgba(255, 0, 0, 0.776);
 }
 

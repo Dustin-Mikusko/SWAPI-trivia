@@ -65,10 +65,10 @@ class App extends Component {
       fetch(characters[i])
         .then(res => res.json())
         .then(character => {
+          let world = this.fetchWorld(character.homeworld);
           let char = {
             name: character.name,
-            world: this.fetchWorld(character.homeworld).name,
-            population: this.fetchWorld(character.homeworld).population,
+            world: world,
             species: this.fetchSpecies(character.species),
             relatedFilms: this.fetchFilms(character.films)
           }
@@ -79,29 +79,24 @@ class App extends Component {
   }
 
     fetchWorld = (homeworld) => {
-      let charWorld = {
-        name: null,
-        population: null
-       };
-      return fetch(homeworld)
+      let promises = [];
+      fetch(homeworld)
         .then(res => res.json())
-        .then(world => {
-          charWorld = {
-            name: world.name,
-            population: world.population
-        }
-        console.log(charWorld)
-        })
+        .then(world => promises.push(world))
         .catch(error => console.log(error));
+
+        return promises;
     }
 
-    fetchSpecies = (species) => {
-      let charSpecies =
-      fetch(species)
-        .then(response => response.json())
-        .then(data => data.name)
-        .catch(error => console.log(error))
-      return charSpecies;
+    fetchSpecies = (charSpecies) => {
+      let promises = [];
+      charSpecies.map(species => {
+        return fetch(species)
+          .then(response => response.json())
+          .then(data => promises.push(data.name))
+          .catch(error => console.log(error))
+      })
+      return promises;
     }
 
     fetchFilms = (films) => {
@@ -112,11 +107,10 @@ class App extends Component {
           .then(data => promises.push(data.title))
           .catch(error => console.log(error))
       })
-      // console.log(promises);
+      return promises;
     }
 
     render() {
-      console.log(this.state.movies)
       if (this.state.user.loggedIn) {
         
         return (
