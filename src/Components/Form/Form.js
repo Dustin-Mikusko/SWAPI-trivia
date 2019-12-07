@@ -11,17 +11,10 @@ class Form extends Component {
       quote: '',
       rank: '',
       error: {
-<<<<<<< HEAD
           name: false,
           quote: false,
           rank: false,
         }
-=======
-        name: false,
-        quote: false,
-        rank: false
-      },
->>>>>>> 652009c48336b8646b9653720b77bd9ee2f8fb9e
     }
   }
 
@@ -34,7 +27,6 @@ class Form extends Component {
   }
 
   submitUser = () => {
-<<<<<<< HEAD
       const { addUser } = this.props;
       let user = {
         name: this.state.name,
@@ -47,45 +39,21 @@ class Form extends Component {
     }
 
   checkInputs = () => {
-    let errorProperty = this.state.error;
-    // let errorProperty2 = {...this.state.error};
-    console.log(1, errorProperty);
-    // console.log(2, errorProperty2);
-=======
-    const { addUser } = this.props;
-    let user = {
-      name: this.state.name,
-      quote: this.state.quote,
-      rank: this.state.rank,
-      favoriteCharacters: [],
-      loggedIn: true
+      let errorProperty = this.state.error;
+      // console.log(1, errorProperty);
+      Object.keys(errorProperty).forEach(key => {
+        if (!this.state[key]) {
+          errorProperty[key] = true;
+          this.setState({error: errorProperty});
+        } else {
+          errorProperty[key] = false;
+          this.setState({error: errorProperty})
+        }
+      });
+      // console.log(3, {...errorProperty});
+      this.checkReady();
     }
-    addUser(user);
-  }
 
-  checkInputs = () => {
-    let errorProperty = this.state.error;
-    console.log(1, errorProperty);
->>>>>>> 652009c48336b8646b9653720b77bd9ee2f8fb9e
-    Object.keys(errorProperty).forEach(key => {
-      if (!this.state[key]) {
-        errorProperty[key] = true;
-        this.setState({error: errorProperty});
-      } else {
-        errorProperty[key] = false;
-        this.setState({error: errorProperty})
-      }
-    });
-    console.log(3, {...errorProperty});
-<<<<<<< HEAD
-    // console.log(4, errorProperty2);
-    this.checkReady();
-  }
-  
-=======
-    this.checkReady();
-  } 
->>>>>>> 652009c48336b8646b9653720b77bd9ee2f8fb9e
   checkReady = () => {
     let error = this.state.error;
     return !error.name && !error.quote && !error.rank ? this.submitUser() : console.log('nope, cann\'t do it');

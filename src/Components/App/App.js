@@ -85,7 +85,7 @@ class App extends Component {
         return (
           <main>
             <Redirect to="/movies" />
-            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies} /> } />
+            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies} user={this.state.user}/> } />
           </main>
         )
       } else {

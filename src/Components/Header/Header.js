@@ -2,10 +2,10 @@ import React from 'react';
 import './Header.css';
 
 
-const Header = () => {
+const Header = ({ user }) => {
   return (
     <header>
-    Helpful header 
+    Helpful header
     </header>
   )
 }
