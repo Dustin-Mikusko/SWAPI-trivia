@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Form from '../Form/Form';
 import { Route, Redirect } from 'react-router-dom';
-import MovieContainer from '../MovieContainer/MovieContainer'
+import MovieContainer from '../MovieContainer/MovieContainer';
+import CharacterContainer from '../CharacterContainer/CharacterContainer';
 
 
 class App extends Component {
@@ -123,6 +124,13 @@ class App extends Component {
           <main>
             <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
             <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}/> } />
+            <Route path='/movies/:movie_id' render={({ match }) => {
+            const movie = this.state.movies.find(movie => movie.episode_id === Number(match.params.id))
+            return ( movie &&
+             <CharacterContainer 
+             {...movie} />
+            )
+          }} />
           </main>
         )
     }
