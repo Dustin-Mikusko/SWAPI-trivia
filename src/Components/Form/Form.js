@@ -94,7 +94,7 @@ class Form extends Component {
             <option value="intermediate">Padawan</option>
             <option value="expert">The Force is Strong With This One...</option>
         </select>
-        <button type="button" onClick={this.checkInputs}>Enter, You Will</button>
+        <button className="enter" type="button" onClick={this.checkInputs}>Enter, You Will</button>
 
       </form>
     )
