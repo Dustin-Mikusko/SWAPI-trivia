@@ -3,7 +3,7 @@ import './MovieContainer.css';
 import Movie from '../Movie/Movie'
 import Header from '../Header/Header'
 
-const MovieContainer = ({ movies }) => {
+const MovieContainer = ({ movies, user }) => {
   const allMovies = movies.map((movie, i) => {
     return < Movie
         key = {i}
@@ -16,9 +16,12 @@ const MovieContainer = ({ movies }) => {
   })
 
   return (
+    <body>
+      <Header user={ user }/>
       <main>
-          {allMovies}
+        {allMovies}
       </main>
+    </body>
   )
 }
 

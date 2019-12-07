@@ -11,10 +11,10 @@ class Form extends Component {
       quote: '',
       rank: '',
       error: {
-        name: false,
-        quote: false,
-        rank: false
-      },
+          name: false,
+          quote: false,
+          rank: false,
+        }
     }
   }
 
@@ -27,32 +27,33 @@ class Form extends Component {
   }
 
   submitUser = () => {
-    const { addUser } = this.props;
-    let user = {
-      name: this.state.name,
-      quote: this.state.quote,
-      rank: this.state.rank,
-      favoriteCharacters: [],
-      loggedIn: true
+      const { addUser } = this.props;
+      let user = {
+        name: this.state.name,
+        quote: this.state.quote,
+        rank: this.state.rank,
+        favoriteCharacters: [],
+        loggedIn: true
+      }
+      addUser(user);
     }
-    addUser(user);
-  }
 
   checkInputs = () => {
-    let errorProperty = this.state.error;
-    console.log(1, errorProperty);
-    Object.keys(errorProperty).forEach(key => {
-      if (!this.state[key]) {
-        errorProperty[key] = true;
-        this.setState({error: errorProperty});
-      } else {
-        errorProperty[key] = false;
-        this.setState({error: errorProperty})
-      }
-    });
-    console.log(3, {...errorProperty});
-    this.checkReady();
-  } 
+      let errorProperty = this.state.error;
+      // console.log(1, errorProperty);
+      Object.keys(errorProperty).forEach(key => {
+        if (!this.state[key]) {
+          errorProperty[key] = true;
+          this.setState({error: errorProperty});
+        } else {
+          errorProperty[key] = false;
+          this.setState({error: errorProperty})
+        }
+      });
+      // console.log(3, {...errorProperty});
+      this.checkReady();
+    }
+
   checkReady = () => {
     let error = this.state.error;
     return !error.name && !error.quote && !error.rank ? this.submitUser() : console.log('nope, cann\'t do it');

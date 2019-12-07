@@ -79,15 +79,13 @@ class App extends Component {
       })
     }
 
-  // render() {
-
     render() {
       if (this.state.user.loggedIn) {
         console.log(this.state.movies)
         return (
           <main>
             <Redirect to="/movies" />
-            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies} /> } />
+            <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies} user={this.state.user}/> } />
           </main>
         )
       } else {
@@ -96,7 +94,7 @@ class App extends Component {
               <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
             </main>
          )
-      } 
+      }
     }
   }
 
