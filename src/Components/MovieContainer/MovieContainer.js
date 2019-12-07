@@ -16,12 +16,12 @@ const MovieContainer = ({ movies, user }) => {
   })
 
   return (
+    <body>
+      <Header user={ user }/>
       <main>
-        <header>
-          <Header user={ user }/>
-        </header>
-            {allMovies}
+        {allMovies}
       </main>
+    </body>
   )
 }
 

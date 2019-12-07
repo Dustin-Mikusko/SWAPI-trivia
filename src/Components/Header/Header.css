@@ -1,5 +1,28 @@
+* {
+  border: 1px solid red;
+}
+
 header {
   background-color: #000;
   height: 100px;
-  color: #fff
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-quote {
+  margin: auto 0px;
+  font-size: 2em;
+  color: #e8c539;
+  font-style: italic;
+}
+
+.logout-button {
+  width: 100px;
+  height: 100px;
+}
+
+
+.user-badge {
+
 }
