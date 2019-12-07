@@ -28,7 +28,6 @@ class App extends Component {
         favoriteCharacters: [],
         loggedIn: false,
     }});
-    console.log(this.state.user);
   }
 
   addUser = newUser => {
@@ -65,45 +64,55 @@ class App extends Component {
     for (let i = 0; i < 10; i++) {
       fetch(characters[i])
         .then(res => res.json())
-        .then(character => promises.push(character))
+        .then(character => {
+          let world = this.fetchWorld(character.homeworld);
+          let char = {
+            name: character.name,
+            world: world,
+            species: this.fetchSpecies(character.species),
+            relatedFilms: this.fetchFilms(character.films)
+          }
+          promises.push(char);
+      })
     }
     return promises;
-  } 
+  }
 
-    fetchWorld = (character) => {
-      let world =
-      fetch(character.homeworld)
-        .then(response => response.json())
-        .then(data => ({
-          name: data.name,
-          population: data.population
-        }))
-        .catch(error => console.log(error))
+    fetchWorld = (homeworld) => {
+      let promises = [];
+      fetch(homeworld)
+        .then(res => res.json())
+        .then(world => promises.push(world))
+        .catch(error => console.log(error));
 
-      return world;
+        return promises;
     }
 
-    fetchSpecies = (character) => {
-      let species =
-      fetch(character.species)
-        .then(response => response.json())
-        .then(data => data.name)
-        .catch(error => console.log(error))
-      return species;
-    }
-
-    fetchFilms = (character) => {
-      return character.films.map(film => {
-        return fetch(film)
+    fetchSpecies = (charSpecies) => {
+      let promises = [];
+      charSpecies.map(species => {
+        return fetch(species)
           .then(response => response.json())
-          .then(data => data.title)
+          .then(data => promises.push(data.name))
           .catch(error => console.log(error))
       })
+      return promises;
+    }
+
+    fetchFilms = (films) => {
+      let promises = [];
+      films.map(film => {
+        return fetch(film)
+          .then(response => response.json())
+          .then(data => promises.push(data.title))
+          .catch(error => console.log(error))
+      })
+      return promises;
     }
 
     render() {
       if (this.state.user.loggedIn) {
-        console.log(this.state.movies)
+        
         return (
           <main>
             <Redirect to="/movies" />
@@ -118,54 +127,6 @@ class App extends Component {
          )
       }
     }
-  }
-
-    // if (this.state.user.loggedIn) {
-    //   return (
-    //     <main>
-    //       <Redirect to='/movies' />
-    //       <Route exact path='/movies' render={() => <MovieContainer movies={this.state.movies}/> } />
-    //     </main>
-    //   )
-    // } else {
-    //   return (<Form addUser={this.addUser} userLogin={this.userLogin} />)
-    // }
-
-
-
-
-    // return (
-    //   <body>
-    //     <Route exact path='/' render={() => this.state.user.loggedIn ? <Redirect to='/movies' /> : <Form addUser={this.addUser} userLogin={this.userLogin}/> } />
-    //   </body>
-    //
-    // )
-
-
+}
 
 export default App;
-
-
-
-
-
-
-// return movie.characters.map(character => {
-//   return fetch(character)
-//   .then(response => response.json())
-//   .then(character => {
-//     let world = this.fetchWorld(character);
-//     return {
-//       name: character.name,
-//       world: world.name,
-//       population: world.population,
-//       species: this.fetchSpecies(character),
-//       relatedFilms: this.fetchFilms(character)
-//     }
-//   })
-//   .catch(error => console.log(error))
-// })
-
-// return Promise.all(moviesAndCharactersPromises)
-//           .then(data => console.log('line 59:', data))
-//           .catch(err => console.log(err))
