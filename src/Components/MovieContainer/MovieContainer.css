@@ -9,4 +9,5 @@ main {
   align-items: center;
   height: 100%;
   flex-wrap: wrap;
+  background-attachment: fixed;
 }
