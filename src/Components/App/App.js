@@ -35,6 +35,7 @@ class App extends Component {
             title: movie.title,
             episode: movie.episode_id,
             releaseDate: this.parseReleaseDate(movie.release_date),
+            characters: [this.fetchCharacters(movie.characters)],
             image: '../images/movie.jpeg',
             openingCredits: movie.opening_crawl
           }
@@ -48,6 +49,16 @@ class App extends Component {
     return date.split('-')[0];
   }
 
+  fetchCharacters = (characters) => {
+    let promises = [];
+    for (let i = 0; i < 10; i++) {
+      fetch(characters[i])
+        .then(res => res.json())
+        .then(character => promises.push(character))
+    }
+    return promises;
+  } 
+
     fetchWorld = (character) => {
       let world =
       fetch(character.homeworld)
@@ -57,7 +68,7 @@ class App extends Component {
           population: data.population
         }))
         .catch(error => console.log(error))
-        // console.log('world', world);
+
       return world;
     }
 
