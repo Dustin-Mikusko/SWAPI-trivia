@@ -2,12 +2,12 @@ import React from 'react';
 import './CharacterContainer.css';
 import Character from '../Character/Character';
 import Header from '../Header/Header'
+import ScrollingText from '../ScrollingText/ScrollingText'
 
 const CharacterContainer = (props) => {
   console.log(props.movie);
   const characters = props.movie.characters.map(character => {
     let world = character.world[0];
-    console.log(world.name);
     return <Character
       name={character.name}
       world= {world.name}
@@ -20,14 +20,15 @@ const CharacterContainer = (props) => {
 
   return (
     <main>
-      <ScrollingText movieText={props.movie.openingCredits}/>
       <Header
-      logOut={ props.logOut }
-      user={ props.user }
+        logOut={ props.logOut }
+        user={ props.user }
       />
-      <div>
+      <ScrollingText movieText={props.movie.openingCredits} />
+      <header>
+      <h1 className="movie-title">{props.movie.title} Characters</h1>
+      </header>
         {characters}
-      </div>
     </main>
   )
 }

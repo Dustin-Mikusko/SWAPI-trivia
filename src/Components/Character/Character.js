@@ -9,7 +9,7 @@ const Character = ({ name, world, population, species, relatedFilms }) => {
         <h3>World: {world}</h3>
         <h3>Population: {population}</h3>
         <h3>Species: {species}</h3>
-        {/* <h3>Related: {world}</h3> */}
+        <h3>Related Films: {relatedFilms}</h3>
       </article>
     </section>
   )
