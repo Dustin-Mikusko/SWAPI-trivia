@@ -1,6 +1,7 @@
 import React from 'react';
 import './CharacterContainer.css';
 import Character from '../Character/Character';
+import Header from '../Header/Header'
 
 const CharacterContainer = (props) => {
   console.log(props.movie);
@@ -18,10 +19,15 @@ const CharacterContainer = (props) => {
   
 
   return (
-    <div>
-      {console.log(characters)}
-      {characters}
-    </div>
+    <section>
+      <Header 
+      logOut={ props.logOut }
+      user={ props.user }
+      />
+      <div>
+        {characters}
+      </div>
+    </section>
   )
 }
 
