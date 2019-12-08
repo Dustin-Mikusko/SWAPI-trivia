@@ -139,6 +139,8 @@ class App extends Component {
             const movie = this.state.movies.find(movie => movie.episode == parseInt(match.params.movie_id))
             return (
              <CharacterContainer
+             user={this.state.user}
+             logOut={this.userLogOut}
              movie={movie} />
             )
           }} />
