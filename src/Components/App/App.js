@@ -125,8 +125,9 @@ class App extends Component {
             <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
             <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}/> } />
             <Route path='/movies/:movie_id' render={({ match }) => {
-            const movie = this.state.movies.find(movie => movie.episode_id === Number(match.params.id))
-            return ( movie &&
+              console.log(match);
+            const movie = this.state.movies.find(movie => movie.episode === Number(match.params.movie_id))
+            return (
              <CharacterContainer 
              {...movie} />
             )
