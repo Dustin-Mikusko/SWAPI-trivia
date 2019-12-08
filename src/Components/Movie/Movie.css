@@ -38,19 +38,21 @@ h3 {
   margin: 0px 0px 10px 0px;
 }
 
-button {
+.characters {
   width: 100%;
   height: 28px;
   margin: 0;
   font-size: 15px;
   border-radius: 5px;
+  background-color: red;
+  margin: auto;
 }
 
-button:hover {
+.characters:hover {
   background-color: rgb(206, 174, 45)
 }
 
-button:active {
+.characters:active {
   transform: scale(.97);
 }
 

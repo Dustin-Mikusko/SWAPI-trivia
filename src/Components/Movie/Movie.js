@@ -2,6 +2,7 @@ import React from 'react';
 import './Movie.css';
 import PropTypes from 'prop-types';
 import poster from '../../images/movie.jpeg';
+import { Link } from 'react-router-dom';
 
 const Movie = ({ title, releaseDate, episode }) => {
   return (
@@ -11,7 +12,8 @@ const Movie = ({ title, releaseDate, episode }) => {
       </div>
       <h3>Title: <span>{title}</span></h3>
       <h3>Release Date: <span>{releaseDate}</span></h3>
-      <button type="button">View Characters</button>
+      <Link to={`/movies/${episode}`} className="characters">View Characters
+      </Link>
     </article>
   )
 }
