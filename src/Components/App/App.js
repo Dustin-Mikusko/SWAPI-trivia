@@ -91,8 +91,6 @@ class App extends Component {
         .then(res => res.json())
         .then(world => promises.push(world))
         .catch(error => console.log(error));
-        let shift = promises.shift();
-        console.log(shift);
         return promises;
     }
 
