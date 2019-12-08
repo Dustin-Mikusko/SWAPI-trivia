@@ -17,8 +17,10 @@ class App extends Component {
         favoriteCharacters: [],
         loggedIn: false,
       },
-      movies: []
+      movies: [],
+      selectedCharacters: false
     }
+
   }
 
   userLogOut = () => {
@@ -46,7 +48,7 @@ class App extends Component {
             title: movie.title,
             episode: movie.episode_id,
             releaseDate: this.parseReleaseDate(movie.release_date),
-            characters: [this.fetchCharacters(movie.characters)],
+            characters: this.fetchCharacters(movie.characters),
             image: '../images/movie.jpeg',
             openingCredits: movie.opening_crawl
           }
@@ -58,6 +60,10 @@ class App extends Component {
 
   parseReleaseDate = date => {
     return date.split('-')[0];
+  }
+
+  updateCharactersState = () => {
+    this.setState({selectedCharacters: true})
   }
 
   fetchCharacters = (characters) => {
@@ -85,7 +91,6 @@ class App extends Component {
         .then(res => res.json())
         .then(world => promises.push(world))
         .catch(error => console.log(error));
-
         return promises;
     }
 
@@ -112,24 +117,29 @@ class App extends Component {
     }
 
     render() {
-      if (this.state.user.loggedIn) {
-       return ( 
+      if (this.state.user.loggedIn && !this.state.selectedCharacters) {
+       return (
        <>
           <Redirect to="/movies" />
-          <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}/> } />
+          <Route exact path='/movies' render={() => <MovieContainer updateCharactersState={this.updateCharactersState} logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}
+         /> }
+        />
        </>
        )
       }
         return (
           <main>
             <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
-            <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}/> } />
+
+            <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user} updateCharactersState={this.updateCharactersState}/> } />
+
             <Route path='/movies/:movie_id' render={({ match }) => {
+              console.log(this.state.movies);
               console.log(match);
-            const movie = this.state.movies.find(movie => movie.episode === Number(match.params.movie_id))
+            const movie = this.state.movies.find(movie => movie.episode == parseInt(match.params.movie_id))
             return (
-             <CharacterContainer 
-             {...movie} />
+             <CharacterContainer
+             movie={movie} />
             )
           }} />
           </main>

@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import './Movie.css';
 import PropTypes from 'prop-types';
 import poster from '../../images/movie.jpeg';
 import { Link } from 'react-router-dom';
 
-const Movie = ({ title, releaseDate, episode }) => {
+const Movie = ({ title, episode, releaseDate, image, openingCredits, updateCharactersState }) => {
   return (
     <article>
       <div className="image">
@@ -12,10 +12,15 @@ const Movie = ({ title, releaseDate, episode }) => {
       </div>
       <h3>Title: <span>{title}</span></h3>
       <h3>Release Date: <span>{releaseDate}</span></h3>
-      <Link to={`/movies/${episode}`} className="characters">View Characters
+      <Link onClick={updateCharactersState} to={`/movies/${episode}`} className="characters" >View Characters
       </Link>
     </article>
   )
-}
+
+  }
+
+
+
+
 
 export default Movie;

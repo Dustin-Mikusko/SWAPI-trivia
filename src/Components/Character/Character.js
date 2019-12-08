@@ -1,9 +1,11 @@
 import React from 'react';
 import './Character.css';
 
-const Character = () => {
+const Character = (props) => {
   return (
-    <h1>Look at me</h1>
+    <>
+    <h1>Look at me {console.log('hello')}</h1>
+    </>
   )
 }
 
