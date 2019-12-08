@@ -18,7 +18,7 @@ class App extends Component {
         loggedIn: false,
       },
       movies: [],
-      selectedCharacters: []
+      selectedCharacters: false
     }
 
   }
@@ -60,6 +60,10 @@ class App extends Component {
 
   parseReleaseDate = date => {
     return date.split('-')[0];
+  }
+
+  updateCharactersState = () => {
+    this.setState({selectedCharacters: true})
   }
 
   fetchCharacters = (characters) => {
@@ -113,17 +117,13 @@ class App extends Component {
       return promises;
     }
 
-    updatedSelectedCharacters = (characters) => {
-      this.setState({selectedCharacters: [...characters]})
-    }
-
     render() {
-      if (this.state.user.loggedIn && !this.state.selectedCharacters.length) {
+      if (this.state.user.loggedIn && !this.state.selectedCharacters) {
        return (
        <>
           <Redirect to="/movies" />
-          <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}
-          updatedSelectedCharacters={this.updatedSelectedCharacters} /> }
+          <Route exact path='/movies' render={() => <MovieContainer updateCharactersState={this.updateCharactersState} logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}
+         /> }
         />
        </>
        )
@@ -132,14 +132,15 @@ class App extends Component {
           <main>
             <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
 
-            <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user} updatedSelectedCharacters={this.updatedSelectedCharacters}/> } />
+            <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user} updateCharactersState={this.updateCharactersState}/> } />
 
             <Route path='/movies/:movie_id' render={({ match }) => {
+              console.log(this.state.movies);
               console.log(match);
-            const movie = this.state.movies.find(movie => movie.episode === Number(match.params.movie_id))
+            const movie = this.state.movies.find(movie => movie.episode == parseInt(match.params.movie_id))
             return (
              <CharacterContainer
-             {...movie} />
+             movie={movie} />
             )
           }} />
           </main>

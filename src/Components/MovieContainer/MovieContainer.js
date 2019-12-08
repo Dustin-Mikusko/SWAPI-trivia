@@ -3,8 +3,8 @@ import './MovieContainer.css';
 import Movie from '../Movie/Movie'
 import Header from '../Header/Header'
 
-const MovieContainer = (props) => {
-  let sortedMovies = props.movies.sort((a, b) => a.episode - b.episode);
+const MovieContainer = ({ movies, logOut, user, updateCharactersState }) => {
+  let sortedMovies = movies.sort((a, b) => a.episode - b.episode);
   const allMovies = sortedMovies.map((movie, i) => {
     return < Movie
         key = {i}
@@ -14,15 +14,15 @@ const MovieContainer = (props) => {
         image = {movie.image}
         openingCredits = {movie.openingCredits}
         characters={movie.characters}
-        updatedSelectedCharacters = {props.updatedSelectedCharacters}
+        updateCharactersState={updateCharactersState}
       />
   })
 
   return (
     <body>
       <Header
-      logOut={props.logOut}
-      user={ props.user }/>
+      logOut={logOut}
+      user={ user }/>
       <main>
         {allMovies}
       </main>
