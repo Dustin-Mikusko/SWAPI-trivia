@@ -16,18 +16,19 @@ const CharacterContainer = (props) => {
       relatedFilms={character.relatedFilms.join(', ')}
     />
   })
-  
+
 
   return (
-    <section>
-      <Header 
+    <main>
+      <ScrollingText movieText={props.movie.openingCredits}/>
+      <Header
       logOut={ props.logOut }
       user={ props.user }
       />
       <div>
         {characters}
       </div>
-    </section>
+    </main>
   )
 }
 
