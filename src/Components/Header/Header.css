@@ -20,9 +20,9 @@ header {
 
 .header-quote {
   margin: auto 0px;
-  font-size: 2.5em;
+  font-size: 3em;
   color: #e8c539;
-  font-family: arial;
+  font-family: 'Pathway Gothic One', sans-serif;
   font-style: italic;
 }
 
@@ -40,6 +40,9 @@ h2, p {
   height: 100px;
   text-align: center;
   margin: .5%;
+  color: #e8c539;
+  font-family: 'Pathway Gothic One', sans-serif;
+
 }
 
 .baby-yoda {
