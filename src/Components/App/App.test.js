@@ -58,3 +58,4 @@ describe('App', () => {
   //   const fetchFilms = jest.fn();
   //   expect(wrapper.instance().fetchFilms).toHaveBeenCalled();
   // })
+})
