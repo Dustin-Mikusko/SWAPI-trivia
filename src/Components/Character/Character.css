@@ -1,0 +1,18 @@
+.character-card {
+  margin: 25px;
+  background-color: white;
+  width: 320px;
+  height: 300px;
+  color: #000;
+  transition: all .3s ease-in-out;
+}
+
+.character-name {
+  font-family: 'Cormorant Garamond', serif;
+  color: #000;
+}
+
+article:hover {
+  transform: scale(1.03);
+  box-shadow: 2px 2px 30px 15px rgba(255, 0, 0, 0.776);
+}
