@@ -19,17 +19,19 @@ const CharacterContainer = (props) => {
 
 
   return (
-    <main className="character-container">
+    <>
       <Header
-        logOut={ props.logOut }
-        user={ props.user }
-      />
-      <ScrollingText movieText={props.movie.openingCredits} />
-      <header>
-      <h1 className="movie-title">{props.movie.title} Characters</h1>
-      </header>
-        {characters}
-    </main>
+          logOut={ props.logOut }
+          user={ props.user }
+        />
+        <main className="character-container">
+        <ScrollingText movieText={props.movie.openingCredits} />
+        <header>
+        <h1 className="movie-title">{props.movie.title} Characters</h1>
+        </header>
+          {characters}
+      </main>
+    </>
   )
 }
 
