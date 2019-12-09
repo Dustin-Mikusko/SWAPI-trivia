@@ -19,7 +19,7 @@ const CharacterContainer = (props) => {
 
 
   return (
-    <main>
+    <main className="character-container">
       <Header
         logOut={ props.logOut }
         user={ props.user }

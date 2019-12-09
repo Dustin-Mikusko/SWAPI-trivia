@@ -1,3 +1,9 @@
-.character-class {
+.character-container {
+  background-image: url('../../images/background-stars.jpeg') ;
   display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-wrap: wrap;
+  background-attachment: fixed;
 }

@@ -6,9 +6,8 @@ const ScrollingText = (props) => {
   return (
     <div>
       <h2>sup d00dz</h2>
-      <p>{props.movieText}</p>
+      <p>{props.movieText.replace("\r\n", "<br>")}</p>
     </div>
-
   )
 }
 

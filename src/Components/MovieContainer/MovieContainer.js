@@ -23,7 +23,7 @@ const MovieContainer = ({ movies, logOut, user, updateCharactersState }) => {
       <Header
       logOut={logOut}
       user={ user }/>
-      <main>
+      <main className="movieContainer">
         {allMovies}
       </main>
     </body>
