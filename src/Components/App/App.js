@@ -4,6 +4,7 @@ import Form from '../Form/Form';
 import { Route, Redirect } from 'react-router-dom';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer';
+import Loading from '../Loading/Loading';
 
 
 class App extends Component {
@@ -18,7 +19,8 @@ class App extends Component {
         loggedIn: false,
       },
       movies: [],
-      selectedCharacters: false
+      selectedCharacters: false,
+      isLoading: false
     }
 
   }
@@ -34,9 +36,9 @@ class App extends Component {
   }
 
   addUser = newUser => {
-    console.log(newUser)
-    this.setState({ user: newUser })
-
+    console.log(newUser);
+    this.setState({ isLoading: true });
+    setTimeout(() => this.setState({ user: newUser, isLoading: false }), 7000)
   }
 
   componentDidMount() {
@@ -63,7 +65,7 @@ class App extends Component {
   }
 
   updateCharactersState = () => {
-    this.setState({selectedCharacters: true})
+    this.checkMovies();
   }
 
   fetchCharacters = (characters) => {
@@ -116,7 +118,32 @@ class App extends Component {
       return promises;
     }
 
+    checkMovies = () => {
+      let ready = true;
+      this.state.movies.forEach(movie => {
+        movie.characters.forEach(character => {
+          console.log(character.world);
+          if (character.world.length === 0) {
+            console.log('noooo')
+            ready = false
+          }
+        })
+      })
+      if (ready) {
+        console.log('why');
+        this.setState({ selectedCharacters: true});
+      } else {
+        // this.checkMovies();
+        console.log('again');
+      }
+    }
+
     render() {
+      if (this.state.isLoading) {
+        return (
+          <Loading />
+        )
+      }
       if (this.state.user.loggedIn && !this.state.selectedCharacters) {
        return (
        <>
@@ -127,6 +154,12 @@ class App extends Component {
        </>
        )
       }
+
+      // if (!this.state.isReady) {
+      //   return (
+      //     <Loading />
+      //   )
+      // }
         return (
           <main>
             <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
@@ -134,8 +167,6 @@ class App extends Component {
             <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user} updateCharactersState={this.updateCharactersState}/> } />
 
             <Route path='/movies/:movie_id' render={({ match }) => {
-              console.log(this.state.movies);
-              console.log(match);
             const movie = this.state.movies.find(movie => movie.episode == parseInt(match.params.movie_id))
             return (
              <CharacterContainer
