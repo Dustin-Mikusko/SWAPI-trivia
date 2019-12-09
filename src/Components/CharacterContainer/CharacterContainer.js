@@ -7,7 +7,6 @@ const CharacterContainer = (props) => {
   console.log(props.movie);
   const characters = props.movie.characters.map(character => {
     let world = character.world[0];
-    console.log(world.name);
     return <Character
       name={character.name}
       world= {world.name}
