@@ -11,10 +11,10 @@ const ScrollingText = (props) => {
         <section className="scrolling-text-container">
           <div className="crawl">
             <div className="title">
-              <p>Episode {props.episodeNumber}</p>
+              <p className="scrolling-text-p-font">Episode {props.episodeNumber}</p>
               <h1 className="movie-title">Episode {props.movieTitle}</h1>
             </div>
-            <p className="scrollingText">{props.movieText.replace("\r\n", "<br>")}</p>
+            <p className="scrolling-text">{props.movieText.replace("\r\n", "<br>")}</p>
             </div>
         </section>
     </div>
