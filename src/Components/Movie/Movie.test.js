@@ -11,7 +11,7 @@ describe('Movie', () => {
     image: "url.to.movie",
     openingCredits: "WeeWooWeeWoo",
     characters: [{name: 'Tom Brady'}],
-    checkMovies: jest.fn()
+    showMovieCharacters: jest.fn()
   };
 
   let wrapper = shallow(<Movie 
@@ -29,7 +29,7 @@ describe('Movie', () => {
   });
 
   it('should call checkMovies when the Link tag is clicked', () => {
-    const mockCheckMovies = jest.fn();
+    const mockShowMovieCharacters = jest.fn();
     wrapper = shallow(<Movie 
       key={mockMovie.key}
       title={mockMovie.title}
@@ -38,11 +38,11 @@ describe('Movie', () => {
       image={mockMovie.image}
       openingCredits={mockMovie.openingCredits}
       characters={mockMovie.characters}
-      checkMovies={mockCheckMovies}
+      showMovieCharacters={mockShowMovieCharacters}
     />)
 
     wrapper.find('Link').simulate('click');
 
-    expect(mockCheckMovies).toHaveBeenCalled();
+    expect(mockShowMovieCharacters).toHaveBeenCalled();
   })
 })

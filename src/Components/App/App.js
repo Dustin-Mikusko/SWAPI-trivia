@@ -109,20 +109,8 @@ class App extends Component {
       return promises;
     }
 
-    checkMovies = () => {
-      let ready = true;
-      this.state.movies.forEach(movie => {
-        movie.characters.forEach(character => {
-          if (character.world.length === 0) {
-            ready = false
-          }
-        })
-      })
-      if (ready) {
-        this.setState({ selectedCharacters: true});
-      } else {
-        
-      }
+    showMovieCharacters = () => {
+      this.setState({ selectedCharacters: true} )
     }
 
     render() {
@@ -135,7 +123,7 @@ class App extends Component {
        return (
        <>
           <Redirect to="/movies" />
-          <Route exact path='/movies' render={() => <MovieContainer checkMovies={this.checkMovies} logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}
+          <Route exact path='/movies' render={() => <MovieContainer showMovieCharacters={this.showMovieCharacters} logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}
          /> }
         />
        </>
@@ -146,7 +134,7 @@ class App extends Component {
           <main>
             <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
 
-            <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user} updateCharactersState={this.updateCharactersState}/> } />
+            <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user} showMovieCharacters={this.showMovieCharacters}/> } />
 
             <Route path='/movies/:movie_id' render={({ match }) => {
             const movie = this.state.movies.find(movie => movie.episode == parseInt(match.params.movie_id))
