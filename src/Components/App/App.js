@@ -5,6 +5,7 @@ import { Route, Redirect } from 'react-router-dom';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer';
 import Loading from '../Loading/Loading';
+import { fetchFilm } from '../../apiCalls'
 
 
 class App extends Component {
@@ -74,7 +75,7 @@ class App extends Component {
             name: character.name,
             world: world,
             species: this.fetchSpecies(character.species),
-            relatedFilms: this.fetchFilms(character.films)
+            relatedFilms: this.buildFilmData(character.films)
           }
           promises.push(char);
       })
@@ -102,11 +103,10 @@ class App extends Component {
       return promises;
     }
 
-    fetchFilms = (films) => {
+    buildFilmData = (films) => {
       let promises = [];
       films.map(film => {
-        return fetch(film)
-          .then(response => response.json())
+        fetchFilm(film)
           .then(data => promises.push(data.title))
           .catch(error => console.log(error))
       })
