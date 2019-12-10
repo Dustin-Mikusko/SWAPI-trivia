@@ -5,7 +5,7 @@ import { Route, Redirect } from 'react-router-dom';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer';
 import Loading from '../Loading/Loading';
-import { fetchFilm } from '../../apiCalls'
+import { getData, getFilm, getSpecies, getWorld, getCharacter } from '../../apiCalls';
 
 
 class App extends Component {
@@ -42,15 +42,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    fetch('https://swapi.co/api/films/')
-      .then(response => response.json())
+    getData('https://swapi.co/api/films/')
       .then(data => {
         return data.results.map(movie => {
           return {
             title: movie.title,
             episode: movie.episode_id,
             releaseDate: this.parseReleaseDate(movie.release_date),
-            characters: this.fetchCharacters(movie.characters),
+            characters: this.buildCharacterData(movie.characters),
             image: '../images/movie.jpeg',
             openingCredits: movie.opening_crawl
           }
@@ -64,17 +63,16 @@ class App extends Component {
     return date.split('-')[0];
   }
 
-  fetchCharacters = (characters) => {
+  buildCharacterData = (characters) => {
     let promises = [];
     for (let i = 0; i < 10; i++) {
-      fetch(characters[i])
-        .then(res => res.json())
+      getCharacter(characters[i])
         .then(character => {
-          let world = this.fetchWorld(character.homeworld);
+          let world = this.buildWorldData(character.homeworld);
           let char = {
             name: character.name,
             world: world,
-            species: this.fetchSpecies(character.species),
+            species: this.buildSpeciesData(character.species),
             relatedFilms: this.buildFilmData(character.films)
           }
           promises.push(char);
@@ -83,20 +81,18 @@ class App extends Component {
     return promises;
   }
 
-    fetchWorld = (homeworld) => {
+    buildWorldData = (homeworld) => {
       let promises = [];
-      fetch(homeworld)
-        .then(res => res.json())
+      getWorld(homeworld)
         .then(world => promises.push(world))
         .catch(error => console.log(error));
         return promises;
     }
 
-    fetchSpecies = (charSpecies) => {
+    buildSpeciesData = (charSpecies) => {
       let promises = [];
       charSpecies.map(species => {
-        return fetch(species)
-          .then(response => response.json())
+        return getSpecies(species)
           .then(data => promises.push(data.name))
           .catch(error => console.log(error))
       })
@@ -106,7 +102,7 @@ class App extends Component {
     buildFilmData = (films) => {
       let promises = [];
       films.map(film => {
-        fetchFilm(film)
+        getFilm(film)
           .then(data => promises.push(data.title))
           .catch(error => console.log(error))
       })
