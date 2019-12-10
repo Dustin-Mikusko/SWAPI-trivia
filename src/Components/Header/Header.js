@@ -3,6 +3,8 @@ import './Header.css';
 import babyYoda from '../../images/baby-yoda.jpeg';
 import lightsaberLogout from '../../images/light-saber-x.jpeg';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+
 
 
 const Header = ({ user, logOut}) => {
@@ -23,3 +25,8 @@ const Header = ({ user, logOut}) => {
   )
 }
 export default Header;
+
+Header.propTypes = {
+  logOut: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired
+}
