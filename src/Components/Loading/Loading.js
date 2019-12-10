@@ -8,7 +8,7 @@ const Loading = () => {
         <p className="loading-title loading">Gathering data from a galaxy far, <br />far away</p>
       </div>
     </main>
-    
+
   )
 }
 
