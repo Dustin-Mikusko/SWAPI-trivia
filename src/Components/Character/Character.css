@@ -5,14 +5,39 @@
   height: 300px;
   color: #000;
   transition: all .3s ease-in-out;
+  padding-bottom: .5em;
+}
+
+.character-image {
+  border-radius: 50px;
 }
 
 .character-name {
+  display: inline-block;
   font-family: 'Cormorant Garamond', serif;
   color: #000;
+  font-size: 1.75em;
+  font-weight: bold;
+  text-align: center;
 }
 
 article:hover {
   transform: scale(1.03);
   box-shadow: 2px 2px 30px 15px rgba(255, 0, 0, 0.776);
+}
+
+.image-name-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.character-card-font {
+  font-family: 'Arial', sans-serif;
+  font-size: 1.25em;
+}
+
+.bold {
+  font-weight: bold;
 }
