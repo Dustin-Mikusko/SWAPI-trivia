@@ -36,12 +36,7 @@ The Movie Page includes a <Header /> Component at the top with the user's inform
 
 When the user clicks on "View Characters" from the specific <Movie /> Component, they will be routed to a specific page for that movie that includes all of the characters for that movie.  There is still a <Header /> component at the top of the page, the scrolling text from the beginning of the specific movie they're viewing, and <Character /> components, each one being a character from that specific movie.
 
-## Future Iterations 
-Future iterations of this project will include the following:
-* Responsiveness for mobile phones
-* Refactor the Loading Component to be dependent on state
-* Build Error Component if there is an error fetching the data from the Star Wars Api
-* Include movie and character-specific images on each card that's rendered
+
 
 ## Project Members
 This project was done over the course of 8 days at Turing School of Software and Design.  Team members are:
