@@ -28,9 +28,9 @@ const CharacterContainer = (props) => {
           <ScrollingText movieText={props.movie.openingCredits}
           movieTitle={props.movie.title}
           episodeNumber={props.movie.episode}/>
-          <header>
+          <section className="movie-characters-banner">
             <h1 className="movie-title">{props.movie.title} Characters</h1>
-          </header>
+          </section>
           {characters}
       </main>
     </>

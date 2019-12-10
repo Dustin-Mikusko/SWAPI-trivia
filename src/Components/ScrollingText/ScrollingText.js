@@ -4,16 +4,18 @@ import './ScrollingText.css';
 const ScrollingText = (props) => {
   return (
     <div>
-
       <div className="fade"></div>
-
         <section className="scrolling-text-container">
+        
           <div className="crawl">
             <div className="title">
+
               <p className="scrolling-text-p-font">Episode {props.episodeNumber}</p>
-              <h1 className="movie-title">Episode {props.movieTitle}</h1>
+              <br />
+              <p className="movie-title">{props.movieTitle}</p>
+
             </div>
-            <p className="scrolling-text">{props.movieText.replace("\r\n", "<br>")}</p>
+            <p className="scrolling-text">{props.movieText.replace("\r\n", "<br />")}</p>
             </div>
         </section>
     </div>
