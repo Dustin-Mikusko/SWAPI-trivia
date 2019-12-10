@@ -12,8 +12,10 @@ const Movie = ({ title, episode, releaseDate,showMovieCharacters }) => {
       </div>
       <h3>Title: <span>{title}</span></h3>
       <h3>Release Date: <span>{releaseDate}</span></h3>
-      <Link onClick={showMovieCharacters} to={`/movies/${episode}`} className="characters" >View Characters
-      </Link>
+      <div className="characters-button-container">
+        <Link onClick={showMovieCharacters} to={`/movies/${episode}`} className="characters" >View Characters
+        </Link>
+      </div>
     </article>
   )
 
