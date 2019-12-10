@@ -32,7 +32,7 @@ Upon logging in, the user will be redirected to a loading page.
 The Movie Page includes a Header Component at the top with the user's information, including their name, skill level, and favorite quote.  The crossed light sabers in the upper right hand corner will log the user out and bring them back to the main login screen.
 
 ## Character Page
-![View all characters from a movie](https://imgur.com/3IVLqUX.gif)
+![characters3](https://user-images.githubusercontent.com/52764657/70578019-cb077100-1b69-11ea-9d2f-0a34a2ddd72e.gif)
 
 When the user clicks on "View Characters" from the specific Movie Component, they will be routed to a specific page for that movie that includes all of the characters for that movie.  There is still a Header component at the top of the page, the scrolling text from the beginning of the specific movie they're viewing, and Character components, each one being a character from that specific movie.
 
