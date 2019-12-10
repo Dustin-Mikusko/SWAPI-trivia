@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Movie should render the component with the correct data to match snapshot 1`] = `
+<article>
+  <div
+    className="image"
+  >
+    <h1>
+      EPISODE 
+      4
+    </h1>
+  </div>
+  <h3>
+    Title: 
+    <span>
+      Revenge of the Sith
+    </span>
+  </h3>
+  <h3>
+    Release Date: 
+    <span>
+      2002
+    </span>
+  </h3>
+  <Link
+    className="characters"
+    onClick={[MockFunction]}
+    to="/movies/4"
+  >
+    View Characters
+  </Link>
+</article>
+`;
