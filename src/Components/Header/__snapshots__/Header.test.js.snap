@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render component to match snapshot with data passed correctly 1`] = `
+<header>
+  <div
+    className="header-container"
+  >
+    <div
+      className="user-badge"
+    >
+      <h2>
+        Tom Brady
+      </h2>
+      <img
+        className="baby-yoda"
+        src="baby-yoda.jpeg"
+      />
+      <p>
+        beginner
+      </p>
+    </div>
+    <h2
+      className="header-quote"
+    >
+      My favorite ring is the next one.
+    </h2>
+    <Link
+      onClick={[MockFunction]}
+      replace={true}
+      to="/"
+    >
+      <img
+        className="logout-button"
+        src="light-saber-x.jpeg"
+      />
+    </Link>
+  </div>
+</header>
+`;

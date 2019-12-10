@@ -5,6 +5,7 @@ import { Route, Redirect } from 'react-router-dom';
 import MovieContainer from '../MovieContainer/MovieContainer';
 import CharacterContainer from '../CharacterContainer/CharacterContainer';
 import Loading from '../Loading/Loading';
+import { getData, getFilm, getSpecies, getWorld, getCharacter } from '../../apiCalls';
 
 
 class App extends Component {
@@ -36,21 +37,19 @@ class App extends Component {
   }
 
   addUser = newUser => {
-    console.log(newUser);
     this.setState({ isLoading: true });
     setTimeout(() => this.setState({ user: newUser, isLoading: false }), 7000)
   }
 
   componentDidMount() {
-    fetch('https://swapi.co/api/films/')
-      .then(response => response.json())
+    getData('https://swapi.co/api/films/')
       .then(data => {
         return data.results.map(movie => {
           return {
             title: movie.title,
             episode: movie.episode_id,
             releaseDate: this.parseReleaseDate(movie.release_date),
-            characters: this.fetchCharacters(movie.characters),
+            characters: this.buildCharacterData(movie.characters),
             image: '../images/movie.jpeg',
             openingCredits: movie.opening_crawl
           }
@@ -64,22 +63,17 @@ class App extends Component {
     return date.split('-')[0];
   }
 
-  updateCharactersState = () => {
-    this.checkMovies();
-  }
-
-  fetchCharacters = (characters) => {
+  buildCharacterData = (characters) => {
     let promises = [];
     for (let i = 0; i < 10; i++) {
-      fetch(characters[i])
-        .then(res => res.json())
+      getCharacter(characters[i])
         .then(character => {
-          let world = this.fetchWorld(character.homeworld);
+          let world = this.buildWorldData(character.homeworld);
           let char = {
             name: character.name,
             world: world,
-            species: this.fetchSpecies(character.species),
-            relatedFilms: this.fetchFilms(character.films)
+            species: this.buildSpeciesData(character.species),
+            relatedFilms: this.buildFilmData(character.films)
           }
           promises.push(char);
       })
@@ -87,55 +81,36 @@ class App extends Component {
     return promises;
   }
 
-    fetchWorld = (homeworld) => {
+    buildWorldData = (homeworld) => {
       let promises = [];
-      fetch(homeworld)
-        .then(res => res.json())
+      getWorld(homeworld)
         .then(world => promises.push(world))
         .catch(error => console.log(error));
         return promises;
     }
 
-    fetchSpecies = (charSpecies) => {
+    buildSpeciesData = (charSpecies) => {
       let promises = [];
       charSpecies.map(species => {
-        return fetch(species)
-          .then(response => response.json())
+        return getSpecies(species)
           .then(data => promises.push(data.name))
           .catch(error => console.log(error))
       })
       return promises;
     }
 
-    fetchFilms = (films) => {
+    buildFilmData = (films) => {
       let promises = [];
       films.map(film => {
-        return fetch(film)
-          .then(response => response.json())
+        getFilm(film)
           .then(data => promises.push(data.title))
           .catch(error => console.log(error))
       })
       return promises;
     }
 
-    checkMovies = () => {
-      let ready = true;
-      this.state.movies.forEach(movie => {
-        movie.characters.forEach(character => {
-          console.log(character.world);
-          if (character.world.length === 0) {
-            console.log('noooo')
-            ready = false
-          }
-        })
-      })
-      if (ready) {
-        console.log('why');
-        this.setState({ selectedCharacters: true});
-      } else {
-        // this.checkMovies();
-        console.log('again');
-      }
+    showMovieCharacters = () => {
+      this.setState({ selectedCharacters: true} )
     }
 
     render() {
@@ -148,23 +123,18 @@ class App extends Component {
        return (
        <>
           <Redirect to="/movies" />
-          <Route exact path='/movies' render={() => <MovieContainer updateCharactersState={this.updateCharactersState} logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}
+          <Route exact path='/movies' render={() => <MovieContainer showMovieCharacters={this.showMovieCharacters} logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}
          /> }
         />
        </>
        )
       }
 
-      // if (!this.state.isReady) {
-      //   return (
-      //     <Loading />
-      //   )
-      // }
         return (
           <main>
             <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />
 
-            <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user} updateCharactersState={this.updateCharactersState}/> } />
+            <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user} showMovieCharacters={this.showMovieCharacters}/> } />
 
             <Route path='/movies/:movie_id' render={({ match }) => {
             const movie = this.state.movies.find(movie => movie.episode == parseInt(match.params.movie_id))

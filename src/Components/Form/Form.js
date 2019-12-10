@@ -22,10 +22,6 @@ class Form extends Component {
     this.setState({ [event.target.name]: event.target.value });
   }
 
-  clearInputs = () => {
-    this.setState({ name: '', quote: '', rank: '' });
-  }
-
   submitUser = () => {
       const { addUser } = this.props;
       let user = {
@@ -40,7 +36,6 @@ class Form extends Component {
 
   checkInputs = () => {
       let errorProperty = this.state.error;
-      // console.log(1, errorProperty);
       Object.keys(errorProperty).forEach(key => {
         if (!this.state[key]) {
           errorProperty[key] = true;
@@ -50,13 +45,12 @@ class Form extends Component {
           this.setState({error: errorProperty})
         }
       });
-      // console.log(3, {...errorProperty});
       this.checkReady();
     }
 
   checkReady = () => {
     let error = this.state.error;
-    return !error.name && !error.quote && !error.rank ? this.submitUser() : console.log('nope, cann\'t do it');
+    return !error.name && !error.quote && !error.rank ? this.submitUser() : null;
   }
 
 

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Loading should render loading component to match snapshot 1`] = `
+<main
+  className="loader"
+>
+  <div
+    className="title-container"
+  >
+    <p
+      className="loading-title loading"
+    >
+      Gathering data from a galaxy far, 
+      <br />
+      far away
+    </p>
+  </div>
+</main>
+`;

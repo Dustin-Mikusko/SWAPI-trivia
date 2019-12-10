@@ -11,12 +11,10 @@ describe('App', () => {
   })
 
   it('should create main App component', () => {
-    // const wrapper = shallow(<App />);
     expect(wrapper).toMatchSnapshot();
   })
 
   it('should update state of user when addUser is called', () => {
-    // const wrapper = shallow(<App />);
     const mockState = {
       name: '',
       quote: '',
@@ -34,27 +32,39 @@ describe('App', () => {
     wrapper.instance().addUser(newUser)
   })
 
-  // it('should call componentDidMount after rendering', () => {
-  //   const mockComponentDidMount = jest.fn();
-  //   expect(wrapper.instance().mockComponentDidMount).toHaveBeenCalled();
-  // })
-
   it('should parse a date to return the year', () => {
     const date = '2000-1-2';
     expect(wrapper.instance().parseReleaseDate(date)).toEqual('2000')
-  })
+  });
 
-  // it('should fetch data for homeworld', () => {
-  //   const fetchWorld = jest.fn();
-  //   expect(wrapper.instance().fetchWorld).toHaveBeenCalled();
-  // })
+  it('should update user State when userLogOut is called', () => {
+    const mockUserState = {
+      name: 'Tom Brady',
+      quote: 'Next ring is favorite',
+      rank: 'GOAT',
+      favoriteCharacters: [],
+      loggedIn: true
+    };
+    const expected = {
+      name: '',
+      quote: '',
+      rank: '',
+      favoriteCharacters: [],
+      loggedIn: false
+    };
 
-  // it('should fetch data for character species', () => {
-  //   const fetchSpecies = jest.fn();
-  //   expect(wrapper.instance().fetchSpecies).toHaveBeenCalled();
-  // })
+    wrapper.setState({ user: mockUserState });
+    wrapper.instance().userLogOut();
+    expect(wrapper.state('user')).toEqual(expected);
+  });
 
-  // it('should fetch data for character's films', () => {
-  //   const fetchFilms = jest.fn();
-  //   expect(wrapper.instance().fetchFilms).toHaveBeenCalled();
-  // })
+  it('should update the selectedCharacters state when showMovieCharacters is called', () => {
+    const expectedState = {
+      selectedCharacters: true
+    };
+
+    wrapper.instance().showMovieCharacters();
+    expect(wrapper.state('selectedCharacters')).toEqual(expectedState.selectedCharacters);
+  });
+
+})

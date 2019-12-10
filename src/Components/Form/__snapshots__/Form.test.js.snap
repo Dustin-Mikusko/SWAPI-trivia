@@ -7,7 +7,7 @@ exports[`Form should match the snapshot with all the data passed in correctly 1`
     src="star-wars-logo.jpeg"
   />
   <input
-    className="name"
+    className=""
     name="name"
     onChange={[Function]}
     placeholder=" Name"
@@ -15,7 +15,7 @@ exports[`Form should match the snapshot with all the data passed in correctly 1`
     value=""
   />
   <input
-    className="quote"
+    className=""
     name="quote"
     onChange={[Function]}
     placeholder=" Favorite Star Wars Quote"
@@ -23,7 +23,7 @@ exports[`Form should match the snapshot with all the data passed in correctly 1`
     value=""
   />
   <select
-    className="rank"
+    className=""
     name="rank"
     onChange={[Function]}
     value=""
@@ -50,6 +50,7 @@ exports[`Form should match the snapshot with all the data passed in correctly 1`
     </option>
   </select>
   <button
+    className="enter"
     onClick={[Function]}
     type="button"
   >

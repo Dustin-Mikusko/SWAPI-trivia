@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import poster from '../../images/movie.jpeg';
 import { Link } from 'react-router-dom';
 
-const Movie = ({ title, episode, releaseDate, image, openingCredits, updateCharactersState }) => {
+const Movie = ({ title, episode, releaseDate, image, openingCredits, showMovieCharacters }) => {
   return (
     <article>
       <div className="image">
@@ -12,7 +12,7 @@ const Movie = ({ title, episode, releaseDate, image, openingCredits, updateChara
       </div>
       <h3>Title: <span>{title}</span></h3>
       <h3>Release Date: <span>{releaseDate}</span></h3>
-      <Link onClick={updateCharactersState} to={`/movies/${episode}`} className="characters" >View Characters
+      <Link onClick={showMovieCharacters} to={`/movies/${episode}`} className="characters" >View Characters
       </Link>
     </article>
   )
