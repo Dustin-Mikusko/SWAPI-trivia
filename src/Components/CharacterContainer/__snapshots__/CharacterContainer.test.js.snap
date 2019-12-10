@@ -24,6 +24,7 @@ exports[`CharacterContainer should render CharacterContainer component with prop
       </h1>
     </header>
     <Character
+      key="0"
       name="Tom Brady"
       relatedFilms="Reeses, Pieces, Species"
       species="G"

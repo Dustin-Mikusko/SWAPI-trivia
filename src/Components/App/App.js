@@ -36,7 +36,6 @@ class App extends Component {
   }
 
   addUser = newUser => {
-    console.log(newUser);
     this.setState({ isLoading: true });
     setTimeout(() => this.setState({ user: newUser, isLoading: false }), 7000)
   }
@@ -118,19 +117,15 @@ class App extends Component {
       let ready = true;
       this.state.movies.forEach(movie => {
         movie.characters.forEach(character => {
-          console.log(character.world);
           if (character.world.length === 0) {
-            console.log('noooo')
             ready = false
           }
         })
       })
       if (ready) {
-        console.log('why');
         this.setState({ selectedCharacters: true});
       } else {
-        // this.checkMovies();
-        console.log('again');
+        
       }
     }
 
@@ -151,11 +146,6 @@ class App extends Component {
        )
       }
 
-      // if (!this.state.isReady) {
-      //   return (
-      //     <Loading />
-      //   )
-      // }
         return (
           <main>
             <Route exact path='/' render={ () => <Form addUser={this.addUser} /> } />

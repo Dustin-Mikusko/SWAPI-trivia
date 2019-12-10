@@ -5,10 +5,10 @@ import Header from '../Header/Header'
 import ScrollingText from '../ScrollingText/ScrollingText'
 
 const CharacterContainer = (props) => {
-  console.log(props.movie);
-  const characters = props.movie.characters.map(character => {
+  const characters = props.movie.characters.map((character, i) => {
     let world = character.world[0];
     return <Character
+      key={i}
       name={character.name}
       world= {world.name}
       population={world.population}

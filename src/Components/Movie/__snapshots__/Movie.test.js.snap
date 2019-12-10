@@ -24,7 +24,6 @@ exports[`Movie should render the component with the correct data to match snapsh
   </h3>
   <Link
     className="characters"
-    onClick={[MockFunction]}
     to="/movies/4"
   >
     View Characters

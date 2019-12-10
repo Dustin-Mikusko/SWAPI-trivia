@@ -2,7 +2,6 @@ import React from 'react';
 import './ScrollingText.css';
 
 const ScrollingText = (props) => {
-  console.log(props);
   return (
     <div>
 
