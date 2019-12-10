@@ -50,7 +50,4 @@ This project was done over the course of 8 days at Turing School of Software and
 
 [Trisha Langlois](https://github.com/trishalanglois)
 
-### Project Speculations
-[View Project Requirements from Turing School of Software and Design](https://frontend.turing.io/projects/module-3/swapi-trivia.html)
-
 
