@@ -1,68 +1,54 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# SWAPI - Nested Fetching from an API Far, Far Away
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+SWAPI is a Turing project with various areas of focus: 
+* Designing architecture of React application, including class and functional components and passing props
+* Utilizing React lifecycle methods
+* Using the Star Wars API to fetch data, including deeply nested fetch requests
+* Resolving promises and cleaning data
+* Defining propTypes for all components receiving props
+* Router to navigate App
+* Test Driven Development, including testing asynchronous methods
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To access this repo, simply clone down and run `npm install` to access the necessary packages.  For the best viewing experience, run `npm run start` and copy and past your local server into the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## User Interface and User Experience
+### Landing Page
+![Landing page when the user loads the app]([Imgur](https://imgur.com/3mgTDsM.gif)
 
-### `npm test`
+The user must fill out all fields in order to log in, as shown by the red highlighting error handling.  The user has three different rank levels to choose from:
+1. What is Star Wars? (novice)
+2. Padawan (intermediate)
+3. The Force is strong with this one... (expert)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Upon logging in, the user will be redirected to a loading page.
 
-### `npm run build`
+### Movie Page
+![View information about the seven different Star Wars movies, with the option to view characters for that movie](https://imgur.com/XkEBCgt.gif)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The Movie Page includes a <Header /> Component at the top with the user's information, including their name, skill level, and favorite quote.  The crossed light sabers in the upper right hand corner will log the user out and bring them back to the main login screen.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+## Character Page
+![View information about the characters specific to the movie(https://imgur.com/FShHrgt.gif)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When the user clicks on "View Characters" from the specific <Movie /> Component, they will be routed to a specific page for that movie that includes all of the characters for that movie.  There is still a <Header /> component at the top of the page, the scrolling text from the beginning of the specific movie they're viewing, and <Character /> components, each one being a character from that specific movie.
 
-### `npm run eject`
+## Future Iterations 
+Future iterations of this project will include the following:
+* Responsiveness for mobile phones
+* Refactor the Loading Component to be dependent on state
+* Build Error Component if there is an error fetching the data from the Star Wars Api
+* Include movie and character-specific images on each card that's rendered
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Project Members
+This project was done over the course of 8 days at Turing School of Software and Design.  Team members are:
+![Dustin Mikusko](https://github.com/Dustin-Mikusko)
+![Trisha Langlois](https://github.com/trishalanglois)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Project Speculations
+[View Project Requirements from Turing School of Software and Design](https://frontend.turing.io/projects/module-3/swapi-trivia.html)
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
