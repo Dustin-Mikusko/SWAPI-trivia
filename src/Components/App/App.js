@@ -26,21 +26,6 @@ class App extends Component {
 
   }
 
-  userLogOut = () => {
-    this.setState({ user: {
-        name: '',
-        quote: '',
-        rank: '',
-        favoriteCharacters: [],
-        loggedIn: false,
-    }});
-  }
-
-  addUser = newUser => {
-    this.setState({ isLoading: true });
-    setTimeout(() => this.setState({ user: newUser, isLoading: false }), 7000)
-  }
-
   componentDidMount() {
     getData('https://swapi.co/api/films/')
       .then(data => {
@@ -57,6 +42,21 @@ class App extends Component {
       })
       .then(movies => this.setState({ movies }))
       .catch(err => this.setState(err))
+  }
+
+  userLogOut = () => {
+    this.setState({ user: {
+        name: '',
+        quote: '',
+        rank: '',
+        favoriteCharacters: [],
+        loggedIn: false,
+    }});
+  }
+
+  addUser = newUser => {
+    this.setState({ isLoading: true });
+    setTimeout(() => this.setState({ user: newUser, isLoading: false }), 7000)
   }
 
   parseReleaseDate = date => {
