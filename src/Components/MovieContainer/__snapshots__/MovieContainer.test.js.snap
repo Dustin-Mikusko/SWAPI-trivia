@@ -1,22 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`MovieContainer should correctly match the snapshot with all the data passed correctly 1`] = `
-<main>
-  <[object Object]
-    episode={1000}
-    image="dustinisthebestpartnerever.com"
-    key="0"
-    openingCredits="still the best"
-    releaseDate={1000}
-    title="A Tale of Dustin Mikusko"
-  />
-  <[object Object]
-    episode={10}
-    image="pants.com"
-    key="1"
-    openingCredits="not shorts"
-    releaseDate={2000}
-    title="A Tale of Trisha too"
-  />
-</main>
+<body>
+  <Header />
+  <main
+    className="movieContainer"
+  >
+    <Movie
+      episode={10}
+      image="pants.com"
+      key="0"
+      openingCredits="not shorts"
+      releaseDate={2000}
+      title="A Tale of Trisha too"
+    />
+    <Movie
+      episode={1000}
+      image="dustinisthebestpartnerever.com"
+      key="1"
+      openingCredits="still the best"
+      releaseDate={1000}
+      title="A Tale of Dustin Mikusko"
+    />
+  </main>
+</body>
 `;

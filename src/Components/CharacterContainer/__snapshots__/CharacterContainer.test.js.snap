@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CharacterContainer should render CharacterContainer component with props to match snapshot 1`] = `
+<Fragment>
+  <Header
+    logOut={[MockFunction]}
+    user={
+      Object {
+        "name": "Tom Brady",
+        "quote": "My favorite ring is the next one.",
+        "rank": "beginner",
+      }
+    }
+  />
+  <main
+    className="character-container"
+  >
+    <ScrollingText />
+    <header>
+      <h1
+        className="movie-title"
+      >
+         Characters
+      </h1>
+    </header>
+    <Character
+      name="Tom Brady"
+      relatedFilms="Reeses, Pieces, Species"
+      species="G"
+    />
+  </main>
+</Fragment>
+`;
