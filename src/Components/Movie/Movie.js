@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Movie.css';
-import poster from '../../images/movie.jpeg';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
@@ -18,12 +17,7 @@ const Movie = ({ title, episode, releaseDate, showMovieCharacters }) => {
       </div>
     </article>
   )
-
-  }
-
-
-
-
+}
 
 export default Movie;
 

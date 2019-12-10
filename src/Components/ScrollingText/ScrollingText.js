@@ -22,7 +22,7 @@ const ScrollingText = (props) => {
         </section>
     </div>
   )
-}
+};
 
 export default ScrollingText;
 
@@ -30,4 +30,4 @@ ScrollingText.propTypes = {
   movieText: PropTypes.string,
   movieTitle: PropTypes.string,
   episdoeNumber: PropTypes.string
-}
+};

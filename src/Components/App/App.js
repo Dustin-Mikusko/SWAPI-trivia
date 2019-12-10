@@ -23,8 +23,7 @@ class App extends Component {
       selectedCharacters: false,
       isLoading: false
     }
-
-  }
+  };
 
   componentDidMount() {
     getData('https://swapi.co/api/films/')
@@ -42,7 +41,7 @@ class App extends Component {
       })
       .then(movies => this.setState({ movies }))
       .catch(err => this.setState(err))
-  }
+  };
 
   userLogOut = () => {
     this.setState({ user: {
@@ -52,16 +51,16 @@ class App extends Component {
         favoriteCharacters: [],
         loggedIn: false,
     }});
-  }
+  };
 
   addUser = newUser => {
     this.setState({ isLoading: true });
     setTimeout(() => this.setState({ user: newUser, isLoading: false }), 7000)
-  }
+  };
 
   parseReleaseDate = date => {
     return date.split('-')[0];
-  }
+  };
 
   buildCharacterData = (characters) => {
     let promises = [];
@@ -76,10 +75,10 @@ class App extends Component {
             relatedFilms: this.buildFilmData(character.films)
           }
           promises.push(char);
-      })
-    }
+      });
+    };
     return promises;
-  }
+  };
 
     buildWorldData = (homeworld) => {
       let promises = [];
@@ -87,7 +86,7 @@ class App extends Component {
         .then(world => promises.push(world))
         .catch(error => console.log(error));
         return promises;
-    }
+    };
 
     buildSpeciesData = (charSpecies) => {
       let promises = [];
@@ -97,7 +96,7 @@ class App extends Component {
           .catch(error => console.log(error))
       })
       return promises;
-    }
+    };
 
     buildFilmData = (films) => {
       let promises = [];
@@ -107,11 +106,11 @@ class App extends Component {
           .catch(error => console.log(error))
       })
       return promises;
-    }
+    };
 
     showMovieCharacters = () => {
-      this.setState({ selectedCharacters: true} )
-    }
+      this.setState({ selectedCharacters: true});
+    };
 
     render() {
       if (this.state.isLoading) {
@@ -137,7 +136,7 @@ class App extends Component {
             <Route exact path='/movies' render={() => <MovieContainer logOut={this.userLogOut} movies={this.state.movies} user={this.state.user} showMovieCharacters={this.showMovieCharacters}/> } />
 
             <Route path='/movies/:movie_id' render={({ match }) => {
-            const movie = this.state.movies.find(movie => movie.episode == parseInt(match.params.movie_id))
+            const movie = this.state.movies.find(movie => movie.episode === parseInt(match.params.movie_id))
             return (
              <CharacterContainer
              user={this.state.user}
@@ -147,7 +146,7 @@ class App extends Component {
           }} />
           </main>
         )
-    }
-}
+    };
+};
 
 export default App;

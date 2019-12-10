@@ -17,7 +17,7 @@ const CharacterContainer = (props) => {
       species={character.species[0]}
       relatedFilms={character.relatedFilms.join(', ')}
     />
-  })
+  });
 
 
   return (
@@ -39,7 +39,7 @@ const CharacterContainer = (props) => {
       </main>
     </>
   )
-}
+};
 
 export default CharacterContainer;
 

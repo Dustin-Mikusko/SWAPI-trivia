@@ -9,7 +9,7 @@ const Character = ({ name, world, population, species, relatedFilms }) => {
     <section className="character-cards">
       <article className="character-card">
       <div className="image-name-container">
-        <img className="character-image" src={characterImage} alt="image of two star wars silhouettes battling" height="100" width="100" />
+        <img className="character-image" src={characterImage} alt="two star wars silhouettes battling" height="100" width="100" />
         <p className="character-name">{name}</p>
       </div>    
         <p className="character-card-font"><span className="bold">World:</span> {world}</p>
@@ -19,7 +19,7 @@ const Character = ({ name, world, population, species, relatedFilms }) => {
       </article>
     </section>
   )
-}
+};
 
 export default Character;
 
@@ -29,4 +29,4 @@ Character.propTypes = {
   population: PropTypes.string,
   species: PropTypes.string,
   relatedFilms: PropTypes.string,
-}
+};

@@ -7,23 +7,24 @@ import PropTypes from 'prop-types';
 
 
 
-const Header = ({ user, logOut}) => {
+const Header = ({ user, logOut }) => {
   return (
     <header>
       <div className='header-container'>
         <div className='user-badge'>
           <h2>{user.name}</h2>
-          <img className='baby-yoda' src={babyYoda} />
+          <img className='baby-yoda' alt='baby yoda' src={babyYoda} />
           <p>{user.rank}</p>
         </div>
         <h2 className='header-quote'>{user.quote}</h2>
         <Link to='/' replace onClick={logOut}>
-        <img className='logout-button' src={lightsaberLogout}/>
+        <img className='logout-button' alt='two light sabers crossing to make an X' src={lightsaberLogout}/>
         </Link>
       </div>
     </header>
   )
-}
+};
+
 export default Header;
 
 Header.propTypes = {

@@ -1,7 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
-import ReactDOM from 'react-dom';
 import { getData } from '../../apiCalls';
 
 jest.mock('../../apiCalls.js');

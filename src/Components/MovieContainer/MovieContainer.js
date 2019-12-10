@@ -18,7 +18,7 @@ const MovieContainer = ({ movies, logOut, user, showMovieCharacters }) => {
         characters={movie.characters}
         showMovieCharacters={showMovieCharacters}
       />
-  })
+  });
 
   return (
     <body>
@@ -30,7 +30,7 @@ const MovieContainer = ({ movies, logOut, user, showMovieCharacters }) => {
       </main>
     </body>
   )
-}
+};
 
 export default MovieContainer;
 

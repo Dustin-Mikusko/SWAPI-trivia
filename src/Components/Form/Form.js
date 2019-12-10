@@ -17,42 +17,42 @@ class Form extends Component {
           rank: false,
         }
     }
-  }
+  };
 
   handleChange = event => {
     this.setState({ [event.target.name]: event.target.value });
-  }
+  };
 
   submitUser = () => {
-      const { addUser } = this.props;
-      let user = {
-        name: this.state.name,
-        quote: this.state.quote,
-        rank: this.state.rank,
-        favoriteCharacters: [],
-        loggedIn: true
-      }
-      addUser(user);
-    }
+    const { addUser } = this.props;
+    let user = {
+      name: this.state.name,
+      quote: this.state.quote,
+      rank: this.state.rank,
+      favoriteCharacters: [],
+      loggedIn: true
+    };
+    addUser(user);
+  };
 
   checkInputs = () => {
-      let errorProperty = this.state.error;
-      Object.keys(errorProperty).forEach(key => {
-        if (!this.state[key]) {
-          errorProperty[key] = true;
-          this.setState({error: errorProperty});
-        } else {
-          errorProperty[key] = false;
-          this.setState({error: errorProperty})
-        }
-      });
-      this.checkReady();
-    }
+    let errorProperty = this.state.error;
+    Object.keys(errorProperty).forEach(key => {
+      if (!this.state[key]) {
+        errorProperty[key] = true;
+        this.setState({error: errorProperty});
+      } else {
+        errorProperty[key] = false;
+        this.setState({error: errorProperty})
+      }
+    });
+    this.checkReady();
+  }
 
   checkReady = () => {
     let error = this.state.error;
     return !error.name && !error.quote && !error.rank ? this.submitUser() : null;
-  }
+  };
 
 
   render() {
@@ -93,10 +93,10 @@ class Form extends Component {
       </form>
     )
   }
-}
+};
 
 export default Form;
 
 Form.propTypes = {
   addUser: PropTypes.func
-}
+};
