@@ -17,7 +17,7 @@ To access this repo, simply clone down and run `npm install` to access the neces
 
 ## User Interface and User Experience
 ### Landing Page
-![Landing page when the user loads the app]([Imgur](https://imgur.com/3mgTDsM.gif)
+![Landing page when the user loads the app](https://imgur.com/3mgTDsM.gif)
 
 The user must fill out all fields in order to log in, as shown by the red highlighting error handling.  The user has three different rank levels to choose from:
 1. What is Star Wars? (novice)
