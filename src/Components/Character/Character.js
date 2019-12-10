@@ -8,12 +8,15 @@ const Character = ({ name, world, population, species, relatedFilms }) => {
   return (
     <section className="character-cards">
       <article className="character-card">
-        <img src={characterImage} alt="image of two star wars silhouettes battling" height="50" width="50" />
-        <h4 className="character-name">{name}</h4>
-        <p><span className="bold">World:</span> {world}</p>
-        <p><span className="bold">Population:</span> {population}</p>
-        <p><span className="bold">Species:</span> {species}</p>
-        <p><span className="bold">Related Films:</span> {relatedFilms}</p>
+      <div className="image-name-container">
+        <img className="character-image" src={characterImage} alt="image of two star wars silhouettes battling" height="100" width="100" />
+        <p className="character-name">{name}</p>
+      </div>
+      
+        <p className="character-card-font"><span className="bold">World:</span> {world}</p>
+        <p className="character-card-font"><span className="bold">Population:</span> {population}</p>
+        <p className="character-card-font"><span className="bold">Species:</span> {species}</p>
+        <p className="character-card-font"><span className="bold">Related Films:</span> {relatedFilms}</p>
       </article>
     </section>
   )
