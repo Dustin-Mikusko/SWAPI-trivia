@@ -27,7 +27,7 @@ The user must fill out all fields in order to log in, as shown by the red highli
 Upon logging in, the user will be redirected to a loading page.
 
 ### Movie Page
-![View information about the seven different Star Wars movies with the option to view characters for that movie](https://imgur.com/XkEBCgt.gif)
+
 
 The Movie Page includes a <Header /> Component at the top with the user's information, including their name, skill level, and favorite quote.  The crossed light sabers in the upper right hand corner will log the user out and bring them back to the main login screen.
 
