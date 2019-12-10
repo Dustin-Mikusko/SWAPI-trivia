@@ -64,10 +64,6 @@ class App extends Component {
     return date.split('-')[0];
   }
 
-  updateCharactersState = () => {
-    this.checkMovies();
-  }
-
   fetchCharacters = (characters) => {
     let promises = [];
     for (let i = 0; i < 10; i++) {
@@ -148,7 +144,7 @@ class App extends Component {
        return (
        <>
           <Redirect to="/movies" />
-          <Route exact path='/movies' render={() => <MovieContainer updateCharactersState={this.updateCharactersState} logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}
+          <Route exact path='/movies' render={() => <MovieContainer checkMovies={this.checkMovies} logOut={this.userLogOut} movies={this.state.movies} user={this.state.user}
          /> }
         />
        </>

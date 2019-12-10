@@ -3,7 +3,7 @@ import './MovieContainer.css';
 import Movie from '../Movie/Movie'
 import Header from '../Header/Header'
 
-const MovieContainer = ({ movies, logOut, user, updateCharactersState }) => {
+const MovieContainer = ({ movies, logOut, user, checkMovies }) => {
   let sortedMovies = movies.sort((a, b) => a.episode - b.episode);
   const allMovies = sortedMovies.map((movie, i) => {
     return < Movie
@@ -14,7 +14,7 @@ const MovieContainer = ({ movies, logOut, user, updateCharactersState }) => {
         image = {movie.image}
         openingCredits = {movie.openingCredits}
         characters={movie.characters}
-        updateCharactersState={updateCharactersState}
+        checkMovies={checkMovies}
       />
   })
 
