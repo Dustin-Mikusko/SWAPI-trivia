@@ -45,7 +45,9 @@ Future iterations of this project will include the following:
 
 ## Project Members
 This project was done over the course of 8 days at Turing School of Software and Design.  Team members are:
+
 [Dustin Mikusko](https://github.com/Dustin-Mikusko)
+
 [Trisha Langlois](https://github.com/trishalanglois)
 
 ### Project Speculations
