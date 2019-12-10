@@ -1,4 +1,4 @@
-# SWAPI - Nested Fetching from an API Far, Far Away
+# Star Wars API - Gathering data from far, far away...
 
 ## Description
 
@@ -27,12 +27,12 @@ The user must fill out all fields in order to log in, as shown by the red highli
 Upon logging in, the user will be redirected to a loading page.
 
 ### Movie Page
-![View information about the seven different Star Wars movies, with the option to view characters for that movie](https://imgur.com/XkEBCgt.gif)
+![View information about the seven different Star Wars movies with the option to view characters for that movie](https://imgur.com/XkEBCgt.gif)
 
 The Movie Page includes a <Header /> Component at the top with the user's information, including their name, skill level, and favorite quote.  The crossed light sabers in the upper right hand corner will log the user out and bring them back to the main login screen.
 
 ## Character Page
-![View information about the characters specific to the movie(https://imgur.com/FShHrgt.gif)
+![View information about the characters specific to the movie](https://imgur.com/FShHrgt.gif)
 
 When the user clicks on "View Characters" from the specific <Movie /> Component, they will be routed to a specific page for that movie that includes all of the characters for that movie.  There is still a <Header /> component at the top of the page, the scrolling text from the beginning of the specific movie they're viewing, and <Character /> components, each one being a character from that specific movie.
 
@@ -45,8 +45,8 @@ Future iterations of this project will include the following:
 
 ## Project Members
 This project was done over the course of 8 days at Turing School of Software and Design.  Team members are:
-![Dustin Mikusko](https://github.com/Dustin-Mikusko)
-![Trisha Langlois](https://github.com/trishalanglois)
+[Dustin Mikusko](https://github.com/Dustin-Mikusko)
+[Trisha Langlois](https://github.com/trishalanglois)
 
 ### Project Speculations
 [View Project Requirements from Turing School of Software and Design](https://frontend.turing.io/projects/module-3/swapi-trivia.html)
