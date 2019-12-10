@@ -6,7 +6,7 @@ const ScrollingText = (props) => {
     <div>
       <div className="fade"></div>
         <section className="scrolling-text-container">
-        
+
           <div className="crawl">
             <div className="title">
 
@@ -15,7 +15,7 @@ const ScrollingText = (props) => {
               <p className="movie-title">{props.movieTitle}</p>
 
             </div>
-            <p className="scrolling-text">{props.movieText.replace("\r\n", "<br />")}</p>
+            <p className="scrolling-text">{props.movieText}</p>
             </div>
         </section>
     </div>

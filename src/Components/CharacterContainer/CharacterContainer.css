@@ -9,5 +9,16 @@
 }
 
 .movie-characters-banner {
-  
+  display: block;
+  height: 100px;
+  width: 100vw;
+  background-color: #000;
+  box-shadow: 0 30px 20px -20px red;
+  text-align: center;
+}
+
+.movie-title-banner {
+  font-size: 2em;
+  color: #fff;
+  margin: auto 0px;
 }
