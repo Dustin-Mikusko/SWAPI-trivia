@@ -1,7 +1,9 @@
 import React from 'react';
 import './MovieContainer.css';
 import Movie from '../Movie/Movie'
-import Header from '../Header/Header'
+import Header from '../Header/Header';
+import PropTypes from 'prop-types';
+
 
 const MovieContainer = ({ movies, logOut, user, showMovieCharacters }) => {
   let sortedMovies = movies.sort((a, b) => a.episode - b.episode);
@@ -31,3 +33,10 @@ const MovieContainer = ({ movies, logOut, user, showMovieCharacters }) => {
 }
 
 export default MovieContainer;
+
+MovieContainer.propTypes = {
+  movies: PropTypes.array.isRequired,
+  logOut: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  showMovieCharacters: PropTypes.func.isRequired
+}
