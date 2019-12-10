@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './Movie.css';
-import PropTypes from 'prop-types';
 import poster from '../../images/movie.jpeg';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-const Movie = ({ title, episode, releaseDate, image, openingCredits, showMovieCharacters }) => {
+const Movie = ({ title, episode, releaseDate,showMovieCharacters }) => {
   return (
     <article>
       <div className="image">
@@ -26,3 +26,10 @@ const Movie = ({ title, episode, releaseDate, image, openingCredits, showMovieCh
 
 
 export default Movie;
+
+Movie.propTypes = {
+  title: PropTypes.string.isRequired,
+  episode: PropTypes.string.isRequired,
+  releaseDate: PropTypes.string.isRequired,
+  showMovieCharacters: PropTypes.func.isRequired
+}

@@ -1,5 +1,7 @@
 import React from 'react';
 import './ScrollingText.css';
+import PropTypes from 'prop-types';
+
 
 const ScrollingText = (props) => {
   return (
@@ -23,3 +25,9 @@ const ScrollingText = (props) => {
 }
 
 export default ScrollingText;
+
+ScrollingText.propTypes = {
+  movieText: PropTypes.string.isRequired,
+  movieTitle: PropTypes.string.isRequired,
+  episdoeNumber: PropTypes.string.isRequired
+}

@@ -2,7 +2,9 @@ import React from 'react';
 import './CharacterContainer.css';
 import Character from '../Character/Character';
 import Header from '../Header/Header'
-import ScrollingText from '../ScrollingText/ScrollingText'
+import ScrollingText from '../ScrollingText/ScrollingText';
+import PropTypes from 'prop-types';
+
 
 const CharacterContainer = (props) => {
   const characters = props.movie.characters.map((character, i) => {
@@ -40,3 +42,9 @@ const CharacterContainer = (props) => {
 }
 
 export default CharacterContainer;
+
+CharacterContainer.propTypes = {
+  user: PropTypes.object.isRequired,
+  logOut: PropTypes.func.isRequired,
+  movie: PropTypes.object.isRequired
+}

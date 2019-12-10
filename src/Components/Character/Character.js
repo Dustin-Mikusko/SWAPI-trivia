@@ -1,6 +1,8 @@
 import React from 'react';
 import './Character.css';
 import characterImage from '../../images/character-picture.jpeg'
+import PropTypes from 'prop-types';
+
 
 const Character = ({ name, world, population, species, relatedFilms }) => {
   return (
@@ -18,3 +20,11 @@ const Character = ({ name, world, population, species, relatedFilms }) => {
 }
 
 export default Character;
+
+Character.propTypes = {
+  name: PropTypes.string.isRequired,
+  world: PropTypes.string.isRequired,
+  population: PropTypes.string.isRequired,
+  species: PropTypes.string.isRequired,
+  relatedFilms: PropTypes.string.isRequired,
+}
