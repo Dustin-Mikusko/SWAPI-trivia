@@ -22,11 +22,15 @@ exports[`Movie should render the component with the correct data to match snapsh
       2002
     </span>
   </h3>
-  <Link
-    className="characters"
-    to="/movies/4"
+  <div
+    className="characters-button-container"
   >
-    View Characters
-  </Link>
+    <Link
+      className="characters"
+      to="/movies/4"
+    >
+      View Characters
+    </Link>
+  </div>
 </article>
 `;

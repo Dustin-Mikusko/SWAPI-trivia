@@ -27,6 +27,6 @@ const Header = ({ user, logOut}) => {
 export default Header;
 
 Header.propTypes = {
-  logOut: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired
+  logOut: PropTypes.func,
+  user: PropTypes.object
 }

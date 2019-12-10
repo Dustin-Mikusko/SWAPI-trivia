@@ -7,11 +7,17 @@ exports[`Character should render component to match snapshot 1`] = `
   <article
     className="character-card"
   >
-    <h1
+    <img
+      alt="image of two star wars silhouettes battling"
+      height="30"
+      src="character-picture.jpeg"
+      width="30"
+    />
+    <h4
       className="character-name"
     >
       Tom Brady
-    </h1>
+    </h4>
     <p>
       <span
         className="bold"

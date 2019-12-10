@@ -20,12 +20,12 @@ exports[`ScrollingText should render component to match snapshot 1`] = `
           Episode 
           4
         </p>
-        <h1
+        <br />
+        <p
           className="movie-title"
         >
-          Episode 
           Revenge of the Sith
-        </h1>
+        </p>
       </div>
       <p
         className="scrolling-text"

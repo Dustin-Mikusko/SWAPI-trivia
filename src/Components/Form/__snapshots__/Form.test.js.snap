@@ -4,6 +4,7 @@ exports[`Form should match the snapshot with all the data passed in correctly 1`
 <form>
   <img
     alt="Star Wars logo"
+    className="star-wars-logo"
     src="star-wars-logo.jpeg"
   />
   <input
