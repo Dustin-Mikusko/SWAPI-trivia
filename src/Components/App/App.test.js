@@ -2,15 +2,38 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import App from './App';
 import ReactDOM from 'react-dom';
+import { getData } from '../../apiCalls';
+
+jest.mock('../../apiCalls.js');
 
 describe('App', () => {
   let wrapper;
-
   beforeEach(() => {
+    getData.mockImplementation(() => {
+      return Promise.resolve([
+        {
+          title: "Star Wars",
+          episode: "2",
+          releaseDate: "1999",
+          characters: [{
+            name: "Darth Vader",
+            world: [{
+              name: "Naboo",
+              population: "450000000"
+            }],
+            species: ["Human"],
+            relatedFilms: ["The Empire Strikes Back"]
+          }],
+          image: '../images/movie.jpeg',
+          openingCredits: "Welcome to Star Wars"
+        }
+      ]);
+    });
     wrapper = shallow(<App />);
-  })
-
+  });
+  
   it('should create main App component', () => {
+    
     expect(wrapper).toMatchSnapshot();
   })
 
