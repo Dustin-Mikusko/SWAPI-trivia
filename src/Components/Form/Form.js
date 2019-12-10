@@ -60,7 +60,7 @@ class Form extends Component {
     const rankErrorClass = this.state.error.rank ? 'error-border' : '';
     return (
       <form>
-      <img src={starWarsLogo} alt='Star Wars logo' />
+      <img className="star-wars-logo" src={starWarsLogo} alt='Star Wars logo' />
        <input
           className={nameErrorClass}
           type="text"
