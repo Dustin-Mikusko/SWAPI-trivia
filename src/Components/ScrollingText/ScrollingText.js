@@ -27,7 +27,7 @@ const ScrollingText = (props) => {
 export default ScrollingText;
 
 ScrollingText.propTypes = {
-  movieText: PropTypes.string.isRequired,
-  movieTitle: PropTypes.string.isRequired,
-  episdoeNumber: PropTypes.string.isRequired
+  movieText: PropTypes.string,
+  movieTitle: PropTypes.string,
+  episdoeNumber: PropTypes.string
 }

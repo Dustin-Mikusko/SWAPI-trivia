@@ -35,8 +35,8 @@ const MovieContainer = ({ movies, logOut, user, showMovieCharacters }) => {
 export default MovieContainer;
 
 MovieContainer.propTypes = {
-  movies: PropTypes.array.isRequired,
-  logOut: PropTypes.func.isRequired,
-  user: PropTypes.object.isRequired,
-  showMovieCharacters: PropTypes.func.isRequired
+  movies: PropTypes.array,
+  logOut: PropTypes.func,
+  user: PropTypes.object,
+  showMovieCharacters: PropTypes.func
 }

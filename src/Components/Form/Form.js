@@ -98,5 +98,5 @@ class Form extends Component {
 export default Form;
 
 Form.propTypes = {
-  addUser: PropTypes.func.isRequired
+  addUser: PropTypes.func
 }

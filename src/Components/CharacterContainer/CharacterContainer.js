@@ -44,7 +44,7 @@ const CharacterContainer = (props) => {
 export default CharacterContainer;
 
 CharacterContainer.propTypes = {
-  user: PropTypes.object.isRequired,
-  logOut: PropTypes.func.isRequired,
-  movie: PropTypes.object.isRequired
+  user: PropTypes.object,
+  logOut: PropTypes.func,
+  movie: PropTypes.object
 }

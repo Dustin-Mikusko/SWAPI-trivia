@@ -16,13 +16,15 @@ exports[`CharacterContainer should render CharacterContainer component with prop
     className="character-container"
   >
     <ScrollingText />
-    <header>
-      <h1
-        className="movie-title"
+    <section
+      className="movie-characters-banner"
+    >
+      <h3
+        className="movie-title-banner"
       >
          Characters
-      </h1>
-    </header>
+      </h3>
+    </section>
     <Character
       key="0"
       name="Tom Brady"
