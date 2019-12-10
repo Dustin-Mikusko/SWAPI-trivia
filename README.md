@@ -29,12 +29,12 @@ Upon logging in, the user will be redirected to a loading page.
 ### Movie Page
 ![View information about the seven different Star Wars movies with the option to view characters for that movie](https://imgur.com/5n4Hpdn.png)
 
-The Movie Page includes a <Header /> Component at the top with the user's information, including their name, skill level, and favorite quote.  The crossed light sabers in the upper right hand corner will log the user out and bring them back to the main login screen.
+The Movie Page includes a Header Component at the top with the user's information, including their name, skill level, and favorite quote.  The crossed light sabers in the upper right hand corner will log the user out and bring them back to the main login screen.
 
 ## Character Page
-![](https://imgur.com/W76bNAQ.gif)
+![View all characters from a movie]()
 
-When the user clicks on "View Characters" from the specific <Movie /> Component, they will be routed to a specific page for that movie that includes all of the characters for that movie.  There is still a <Header /> component at the top of the page, the scrolling text from the beginning of the specific movie they're viewing, and <Character /> components, each one being a character from that specific movie.
+When the user clicks on "View Characters" from the specific Movie Component, they will be routed to a specific page for that movie that includes all of the characters for that movie.  There is still a Header component at the top of the page, the scrolling text from the beginning of the specific movie they're viewing, and Character components, each one being a character from that specific movie.
 
 ## Future Iterations 
 Future iterations of this project will include the following:
