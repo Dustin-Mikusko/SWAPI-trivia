@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScrollingText should render component to match snapshot 1`] = `
+<div>
+  <div
+    className="fade"
+  />
+  <section
+    className="scrolling-text-container"
+  >
+    <div
+      className="crawl"
+    >
+      <div
+        className="title"
+      >
+        <p
+          className="scrolling-text-p-font"
+        >
+          Episode 
+          4
+        </p>
+        <h1
+          className="movie-title"
+        >
+          Episode 
+          Revenge of the Sith
+        </h1>
+      </div>
+      <p
+        className="scrolling-text"
+      >
+        Hello
+      </p>
+    </div>
+  </section>
+</div>
+`;
